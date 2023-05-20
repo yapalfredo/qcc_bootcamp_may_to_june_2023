@@ -155,7 +155,7 @@ nav ul li a {
   margin-bottom: 25px;
 }
 
-.threeboxesContainer  {
+.threeboxesContainer {
   display: flex;
   justify-content: space-around;
 }
@@ -168,7 +168,7 @@ nav ul li a {
   background-color: #eeece1;
 }
 
-.boxContainer img{
+.boxContainer img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -176,29 +176,20 @@ nav ul li a {
 
 .boxContainer.description {
   display: flex;
-  justify-content: center; /* Horizontal center alignment */
-  align-items: center; /* Vertical center alignment */
-  text-align: center; /* Center text within the <p> tag */
+  justify-content: center;
+  /* Horizontal center alignment */
+  align-items: center;
+  /* Vertical center alignment */
+  text-align: center;
+  /* Center text within the <p> tag */
   font-size: larger;
   box-shadow: inset 0 0 0 5px #4f81bd;
 }
 
-.boxContainer  p {
+.boxContainer p {
   margin-left: 25px;
   margin-right: 25px;
 }
-
-
-/* .threeboxesContainer {
-  display: flex;
-  flex-direction: row;
-  width: 95%;
-  align-items: center;
-  justify-content: center;
-} */
-
-
-
 
 @media (max-width: 600px) {
   .threeboxesContainer {

@@ -151,6 +151,9 @@ nav ul li a {
 
 .boxesMainContainer {
   display: flex;
+}
+
+.boxesMainContainer, .bottomInfoContainer {
   margin-top: 25px;
   margin-bottom: 25px;
 }
@@ -162,9 +165,9 @@ nav ul li a {
 
 .boxContainer {
   flex: 1 0 25%;
-  margin: 5px;
+  margin: 2px;
   box-sizing: border-box;
-  border: 2px solid black;
+  border: 3px solid black;
   background-color: #eeece1;
 }
 
@@ -181,7 +184,6 @@ nav ul li a {
   align-items: center;
   /* Vertical center alignment */
   text-align: center;
-  /* Center text within the <p> tag */
   font-size: larger;
   box-shadow: inset 0 0 0 5px #4f81bd;
 }
@@ -189,6 +191,15 @@ nav ul li a {
 .boxContainer p {
   margin-left: 25px;
   margin-right: 25px;
+}
+
+.boxContainer.description.northernlights  {
+text-align: justify;
+}
+
+.boxContainer.description.northernlights p {
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 @media (max-width: 600px) {

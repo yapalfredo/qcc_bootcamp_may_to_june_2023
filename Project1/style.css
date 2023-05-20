@@ -1,0 +1,147 @@
+.indexLogoContainer {
+  display: flex;
+  height: 75px;
+  justify-content: space-between;
+}
+
+hr.solid {
+  border-top: 1px solid #bbb;
+}
+
+h1.header {
+  text-align: center;
+}
+
+.thingsToDo {
+  border: 2px solid black;
+  background-color: #ffb6c1;
+  color: white;
+  padding: 10px;
+}
+
+.thingsToDo, .upcomingEventsContainer, .newsfeedContainer, .icelandTripCostContainer, .contactUsContainer{
+  margin-bottom: 20px;
+}
+
+.container-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.twobytwoflex {
+  width: 95%;
+}
+
+.container-top-bottom {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+
+
+#container-item-2,
+#container-item-3 {
+  width: 70vw;
+}
+
+.container-bottom {
+  display: flex;
+  flex-direction: row;
+}
+
+.item-image {
+  width: 30vw;
+  border: 2px solid blue;
+}
+
+.item-image-caption {
+  font-style: italic;
+}
+
+figure img,
+figure figcaption {
+  text-align: left;
+  display: block;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li:not(:last-child)::after {
+  content: " |";
+  padding: 0 10px;
+  /* add some space around the "|" */
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+
+.newsfeedContainer h4 {
+  font-style: italic;
+}
+
+.newsfeedContainer p {
+  margin-top: -20px;
+  margin-left: 40px;
+}
+
+.icelandTripCostContainer table{
+  border: 2px solid black;
+}
+
+.icelandTripCostContainer table thead th {
+  background-color: lightgreen;
+  font-weight: bold;
+}
+
+.icelandTripCostContainer table tbody tr:first-child td:last-child {
+  background-color: lightpink;
+}
+
+.icelandTripCostContainer table tbody tr:last-child td{
+  background-color: lightgreen;
+  font-weight: bold;
+}
+
+.contactUsContainer table {
+  margin-left: 40px;
+}
+
+.contactUsContainer td img {
+  height: 50px;
+  width: 50px;
+}
+
+.contactUsContainer td:last-child {
+ padding-left: 15px;
+}
+

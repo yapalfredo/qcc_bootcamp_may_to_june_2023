@@ -15,7 +15,28 @@
 
     <!-- Body -->
     <hr class="solid" />
+    <div class="contacFormAreaContainer">
+      <div>
+        <p>Iceland, IS</p>
+        <p>Phone: +354 1515151515</p>
+        <p>Email: mail@mail.is</p>
+      </div>
 
+      <div>
+        <form id="contactForm">
+          <div class="input-row">
+            <input type="text" id="name" placeholder="Name" required />
+            <input type="email" id="email" placeholder="Email" required />
+          </div>
+          <textarea id="comment" placeholder="Comment" required></textarea
+          ><br />
+
+          <input type="submit" value="Send" />
+        </form>
+      </div>
+    </div>
+
+    <hr class="solid" />
     <!-- Footer -->
     <footer>
       <nav>
@@ -29,4 +50,13 @@
       <p>2023 @ Project 1 Alfredo Yap</p>
     </footer>
   </body>
+  <script>
+    document
+      .getElementById('contactForm')
+      .addEventListener('submit', function (event) {
+        event.preventDefault();
+        this.reset();
+        alert('Your message has been sent');
+      });
+  </script>
 </html>

@@ -153,7 +153,9 @@ nav ul li a {
   display: flex;
 }
 
-.boxesMainContainer, .bottomInfoContainer {
+.boxesMainContainer,
+.bottomInfoContainer,
+.contacFormAreaContainer {
   margin-top: 25px;
   margin-bottom: 25px;
 }
@@ -193,8 +195,8 @@ nav ul li a {
   margin-right: 25px;
 }
 
-.boxContainer.description.northernlights  {
-text-align: justify;
+.boxContainer.description.northernlights {
+  text-align: justify;
 }
 
 .boxContainer.description.northernlights p {
@@ -202,12 +204,56 @@ text-align: justify;
   margin-right: 50px;
 }
 
+.contacFormAreaContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+ 
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.input-row input {
+  width: calc(50% - 20px); /* Adjust the "10px" as per your requirement for the gap */
+}
+
+#contactForm textarea {
+  margin-top: 10px;
+  resize: vertical;
+  height: 100px;
+}
+
+#contactForm input[type="submit"] {
+  margin-top: 10px;
+  background-color: black;
+  border: none;
+  color: white;
+  width: 70px;
+  height: 40px;
+  cursor: pointer;
+
+  align-self: flex-end;
+}
+
 @media (max-width: 600px) {
   .threeboxesContainer {
     flex-direction: column;
   }
 
-  .boxContainer{
+  .boxContainer {
     aspect-ratio: 1 / 1;
   }
 }

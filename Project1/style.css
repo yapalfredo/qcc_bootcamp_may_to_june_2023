@@ -205,19 +205,32 @@ nav ul li a {
 }
 
 .contacFormAreaContainer {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: center;
-align-items: center;
+  align-items: center;
   padding-top: 50px;
   padding-bottom: 50px;
+
+}
+
+.contactAddressPhoneEmailContainer {
+  margin-right: 100px;
+}
+
+
+.contacFormAreaContainer,
+.input-row input,
+input[type="submit"],
+#contactForm textarea {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #contactForm {
   display: flex;
   flex-direction: column;
   width: 100%;
- 
 }
 
 .input-row {
@@ -227,7 +240,9 @@ align-items: center;
 }
 
 .input-row input {
-  width: calc(50% - 20px); /* Adjust the "10px" as per your requirement for the gap */
+
+  width: calc(50% - 20px);
+  /* Adjust the "10px" as per your requirement for the gap */
 }
 
 #contactForm textarea {
@@ -256,4 +271,35 @@ align-items: center;
   .boxContainer {
     aspect-ratio: 1 / 1;
   }
+
+  .contacFormAreaContainer {
+    flex-direction: column;
+  }
+
+  .contactAddressPhoneEmailContainer {
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+
+  .input-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-row input {
+    margin-bottom: 10px;
+    width: 200px;
+  }
+
+  #contactForm textarea {
+    align-self: center;
+    margin-top: 0px;
+    height: 100px;
+    width: 200px;
+  }
+
+  #contactForm input[type="submit"] {
+    align-self: center;
+  }
+
 }

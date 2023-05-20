@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Header -->
@@ -16,13 +20,16 @@
     <!-- Body -->
     <hr class="solid" />
     <div class="contacFormAreaContainer">
-      <div>
-        <p>Iceland, IS</p>
-        <p>Phone: +354 1515151515</p>
-        <p>Email: mail@mail.is</p>
+      <div class="contactAddressPhoneEmailContainer">
+        <p><i class="fa-sharp fa-solid fa-location-dot"></i> Iceland, IS</p>
+        <p>
+          <i class="fa-sharp fa-solid fa-mobile-screen-button"></i> Phone: +354
+          1515151515
+        </p>
+        <p><i class="fa-sharp fa-solid fa-envelope"></i> Email: mail@mail.is</p>
       </div>
 
-      <div>
+      <div class="contactFormContainer">
         <form id="contactForm">
           <div class="input-row">
             <input type="text" id="name" placeholder="Name" required />
@@ -30,7 +37,6 @@
           </div>
           <textarea id="comment" placeholder="Comment" required></textarea
           ><br />
-
           <input type="submit" value="Send" />
         </form>
       </div>

@@ -19,7 +19,11 @@ h1.header {
   padding: 10px;
 }
 
-.thingsToDo, .upcomingEventsContainer, .newsfeedContainer, .icelandTripCostContainer, .contactUsContainer{
+.thingsToDo,
+.upcomingEventsContainer,
+.newsfeedContainer,
+.icelandTripCostContainer,
+.contactUsContainer {
   margin-bottom: 20px;
 }
 
@@ -31,7 +35,7 @@ h1.header {
 }
 
 .twobytwoflex {
-  width: 95%;
+  width: 98%;
 }
 
 .container-top-bottom {
@@ -114,7 +118,7 @@ nav ul li a {
   margin-left: 40px;
 }
 
-.icelandTripCostContainer table{
+.icelandTripCostContainer table {
   border: 2px solid black;
 }
 
@@ -127,7 +131,7 @@ nav ul li a {
   background-color: lightpink;
 }
 
-.icelandTripCostContainer table tbody tr:last-child td{
+.icelandTripCostContainer table tbody tr:last-child td {
   background-color: lightgreen;
   font-weight: bold;
 }
@@ -142,6 +146,62 @@ nav ul li a {
 }
 
 .contactUsContainer td:last-child {
- padding-left: 15px;
+  padding-left: 15px;
 }
 
+.boxesMainContainer {
+  display: flex;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.threeboxesContainer  {
+  display: flex;
+  justify-content: space-around;
+}
+
+.boxContainer {
+  flex: 1 0 25%;
+  margin: 5px;
+  box-sizing: border-box;
+  border: 2px solid black;
+  background-color: #eeece1;
+}
+
+.boxContainer img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.boxContainer.description {
+  display: flex;
+  justify-content: center; /* Horizontal center alignment */
+  align-items: center; /* Vertical center alignment */
+  text-align: center; /* Center text within the <p> tag */
+  font-size: larger;
+  box-shadow: inset 0 0 0 5px #4f81bd;
+}
+
+.boxContainer  p {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+
+/* .threeboxesContainer {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  align-items: center;
+  justify-content: center;
+} */
+
+
+
+
+@media (max-width: 600px) {
+  .threeboxesContainer {
+    flex-direction: column;
+  }
+}

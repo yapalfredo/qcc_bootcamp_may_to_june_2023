@@ -23,7 +23,7 @@ body {
     flex-direction: column;
     width: 35vw;
     height: 12.5vh;
-    background-color: rgba(92, 92, 92, .65);
+    background-color: rgba(100, 100, 100, .75);
     margin-right: 25px;
     margin-bottom: 25px;
     color: white;
@@ -32,9 +32,14 @@ body {
     justify-content: center;
 }
 
+a:link, a:visited {
+    color: blue;
+}
+
 .messageBoxChildren {
     margin: 0;
     padding: 0;
+    font-size: large;
 }
 
 #button {
@@ -135,7 +140,7 @@ body {
 }
 
 @media (max-width: 600px) {
-    .messageBox {
+    .messageBoxChildren {
         font-size: smaller;
     }
 
@@ -144,12 +149,12 @@ body {
         font-size: smaller;
     }
     .p-a-tags {
-        margin-bottom: 0;
+        margin-bottom: 2.5px;
     }
 }
 
 @media (max-height: 768px) {
-    .messageBox {
+    .messageBoxChildren {
         font-size: x-small;
     }
 

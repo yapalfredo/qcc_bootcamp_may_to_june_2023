@@ -94,10 +94,11 @@ a:link, a:visited {
     height: 25px;
     transform-origin: left center;
     /* Adjust the rotation point */
-    transform: translateY(-50%);
+    /* transform: translateY(-50%);  not needed */
     /* Center the hand vertically */
     animation: rotate-hour 120s infinite linear;
     /* Apply the rotate-hour animation */
+
 }
 
 .minuteHand {
@@ -105,7 +106,7 @@ a:link, a:visited {
     height: 35px;
     transform-origin: left center;
     /* Adjust the rotation point */
-    transform: rotate(-90deg) translateY(-50%) translateX(100%);
+    /* transform: rotate(-90deg) translateY(-50%) translateX(100%); not needed*/
     /* Set the initial rotation and position */
     animation: rotate-minute 10s infinite linear;
     /* Apply the rotate-minute animation */
@@ -141,7 +142,6 @@ a:link, a:visited {
 }
 
 @media (max-width: 768px), (max-height: 768px) {
-
     .messageBoxChildren,
     #button {
       font-size: smaller;

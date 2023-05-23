@@ -1,0 +1,160 @@
+body {
+    background-image: url("images/new-york-city-guide.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    margin: 0;
+    height: 100vh;
+    display: flex;
+}
+
+.BottomRightContainer {
+    display: flex;
+    flex: 1;
+    align-self: flex-end;
+    justify-content: flex-end;
+
+}
+
+.messageBox {
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+    height: 12.5vh;
+    background-color: rgba(92, 92, 92, .65);
+    margin-right: 25px;
+    margin-bottom: 25px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.messageBoxChildren {
+    margin: 0;
+    padding: 0;
+}
+
+#button {
+    width: 80px;
+    align-self: center;
+}
+
+.p-a-tags {
+    margin-bottom: 10px;
+}
+
+.clockContainer {
+    top: 15%;
+    left: 10%;
+    width: 200px;
+    height: 200px;
+    background-image: url("images/clockimage.png");
+    background-size: cover;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    filter: invert(1) brightness(2);
+}
+
+.centerCircle {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.clockHand {
+    background-image: url("images/hand.png");
+    background-size: auto 100%;
+    position: absolute;
+    top: 50%;
+    /* Center the clock hand vertically */
+    left: 50%;
+    /* Center the clock hand horizontally */
+    animation-timing-function: steps(60)
+        /* Set the animation timing function */
+}
+
+.hourHand {
+    width: 50px;
+    height: 25px;
+    transform-origin: left center;
+    /* Adjust the rotation point */
+    transform: translateY(-50%);
+    /* Center the hand vertically */
+    animation: rotate-hour 120s infinite linear;
+    /* Apply the rotate-hour animation */
+}
+
+.minuteHand {
+    width: 70px;
+    height: 35px;
+    transform-origin: left center;
+    /* Adjust the rotation point */
+    transform: rotate(-90deg) translateY(-50%) translateX(100%);
+    /* Set the initial rotation and position */
+    animation: rotate-minute 10s infinite linear;
+    /* Apply the rotate-minute animation */
+}
+
+
+@keyframes rotate-hour {
+
+    /* Defines the rotate animation for the hour hand */
+    0% {
+        transform: translateY(-50%) rotate(0deg);
+        /* Initial state */
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(360deg);
+        /* Final state */
+    }
+}
+
+@keyframes rotate-minute {
+
+    /* Defines the rotate animation for the hour hand */
+    0% {
+        transform: translateY(-50%) rotate(-90deg);
+        /* Initial state */
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(270deg);
+        /* Final state */
+    }
+}
+
+@media (max-width: 600px) {
+    .messageBox {
+        font-size: smaller;
+    }
+
+    #button {
+        width: 60px;
+        font-size: smaller;
+    }
+    .p-a-tags {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-height: 768px) {
+    .messageBox {
+        font-size: x-small;
+    }
+
+    #button {
+        width: 60px;
+        font-size: x-small;
+    }
+}

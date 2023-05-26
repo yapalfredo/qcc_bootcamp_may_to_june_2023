@@ -2,86 +2,104 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sample Modal with :target</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Bootstrap Two-Column Layout</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    />
     <style>
-      /* General styles */
-      body {
-        font-family: Arial, sans-serif;
+      /* Optional custom styles */
+      .box {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
       }
 
-      /* Modal styles */
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.4);
+      .large-image {
+        height: 400px;
+        background-color: #ddd;
       }
 
-      /* Flexbox container for centering the modal content */
-      .modal-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-      }
-
-      .modal-content {
-        background-color: #fefefe;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        max-width: 500px;
-        box-sizing: border-box;
-      }
-
-      .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-      }
-
-      .close:hover,
-      .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-      }
-
-      /* Show the modal when the target is active */
-      .modal:target {
-        display: block;
+      .small-description {
+        height: 100px;
+        background-color: #eee;
       }
     </style>
   </head>
   <body>
-    <h1>Sample Modal with :target</h1>
-    <p>Click the button to open the modal.</p>
-    <a href="#modal">
-      <button>Open Modal</button>
-    </a>
-    <div class="modal" id="modal">
-      <div class="modal-container">
-        <div class="modal-content">
-          <a href="#" class="close">&times;</a>
-          <h2>Modal Header</h2>
-          <p>
-            This is a sample modal created using only HTML and CSS with Flexbox
-            and :target.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            lacinia odio vitae vestibulum vestibulum. Cras porttitor metus
-            justo, ut fringilla elit lobortis a.
-          </p>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- First Column -->
+        <div class="col-md-6">
+          <div class="row">
+            <!-- First Row -->
+            <div class="col-md-12">
+              <div class="box large-image"></div>
+            </div>
+            <!-- Second Row -->
+            <div class="col-md-12">
+              <div class="box small-description"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Second Column -->
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="box"></div>
+            </div>
+            <div class="col-md-4">
+              <div class="box"></div>
+            </div>
+            <div class="col-md-4">
+              <div class="box"></div>
+            </div>
+            <div class="col-md-4">
+              <div class="box"></div>
+            </div>
+            <div class="col-md-4">
+              <div class="box"></div>
+            </div>
+            <div class="col-md-4">
+              <div class="box"></div>
+            </div>
+            <div class="col-md-4">
+              <div class="box"></div>
+            </div>
+            <div class="col-md-4">
+              <div class="box"></div>
+            </div>
+            <div class="col-md-4">
+              <div class="box"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+      integrity="sha384-l5A7OCMwK9x5zvL9A3LyI4zYJGr7bI2Kj9ZtWq8yVq2KlV5QcL5+9PmV2G9JA8JW"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

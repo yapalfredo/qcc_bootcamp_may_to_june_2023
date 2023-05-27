@@ -186,7 +186,33 @@ p._inside {
     color: white;
     background-color: black;
     padding: 10px;
+    position: relative;
+    display: inline-block;
 }
+
+.btnAddToBag:hover {
+    background-color:grey;
+}
+
+.btnAddToBag::after {
+    content: 'Add to Shopping Cart';
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Center the message horizontally */
+    bottom: calc(100%); /* Position the message above the link */
+    background-color: lightgrey;
+    color: black;
+    border: 1px solid lightgray;
+    width: 130px;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .btnAddToBag:hover::after {
+    display: block; /* Show the message when hovering */
+  }
+
 
 footer {
     background-color: #232323;

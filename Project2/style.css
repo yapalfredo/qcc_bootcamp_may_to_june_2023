@@ -245,6 +245,13 @@ footer {
     margin-right: 10%;
 }
 
+._bottomCenter {
+    padding-top: 50px;
+    padding-bottom: 5px;
+    font-size: smaller;
+    text-align: center;
+}
+
 @media (max-width: 600px) {
     .slide {
         font-size: small;
@@ -279,6 +286,11 @@ footer {
         align-items: center;
         font-size: smaller;
         margin-right: 0%;
+    }
+
+    ._bottomCenter{
+        font-size: x-small;
+        padding: 5px;
     }
  
 }

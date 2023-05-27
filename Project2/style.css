@@ -7,10 +7,20 @@ header {
     align-items: center;
     justify-content: center;
     padding: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .imgLogo {
     animation: zoomIn 0.8s linear infinite; /* Apply the zoomIn animation with a duration of 3 seconds, linear timing, and infinite repetition */
+  }
+
+  .h1Brand {
+    animation: entrance 6s  infinite; /* Apply the entrance animation with a duration of 3 seconds, linear timing, and play it once */
+  }
+
+  .h4BrandSlogan {
+    animation: entrance2 6s  infinite; /* Apply the entrance animation with a duration of 3 seconds, linear timing, and play it once */
   }
 
 header h1 {
@@ -94,6 +104,30 @@ header h4 {
     }
     100% {
       transform: scale(1); /* Scale up to the original size */
+    }
+  }
+
+  @keyframes entrance {
+    0% {
+      transform: translateY(-150%); /* Start from all the way at the top */
+    }
+    30% {
+      transform: translateY(180%); /* Move to the bottom */
+    }
+    90%,100% {
+      transform: translateY(0%); /* Settle in the normal position */
+    }
+  }
+
+  @keyframes entrance2 {
+    0% {
+      transform: translateY(450%); /* Start from all the way at the top */
+    }
+    30% {
+      transform: translateY(-450%); /* Move to the bottom */
+    }
+    90%,100% {
+      transform: translateY(0%); /* Settle in the normal position */
     }
   }
 

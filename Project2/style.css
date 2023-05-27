@@ -211,6 +211,7 @@ footer {
 
 .topSectionColumn p, .rightAlignedSection p {
     font-weight: bold;
+    font-size: small;
 }
 
 .topSectionColumn  a {
@@ -221,8 +222,7 @@ footer {
 }
 
 ._divider {
-    padding-top: 30px;
-
+    padding-top:50px;
 }
 
 .footerHr {
@@ -248,7 +248,7 @@ footer {
 ._bottomCenter {
     padding-top: 50px;
     padding-bottom: 5px;
-    font-size: smaller;
+    font-size: x-small;
     text-align: center;
 }
 
@@ -289,7 +289,6 @@ footer {
     }
 
     ._bottomCenter{
-        font-size: x-small;
         padding: 5px;
     }
  

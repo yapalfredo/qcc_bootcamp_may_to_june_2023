@@ -12,15 +12,15 @@ header {
 }
 
 .imgLogo {
-    animation: zoomIn 0.8s linear infinite; /* Apply the zoomIn animation with a duration of 3 seconds, linear timing, and infinite repetition */
+    animation: zoomIn 0.8s linear infinite; 
   }
 
   .h1Brand {
-    animation: entrance 6s  infinite; /* Apply the entrance animation with a duration of 3 seconds, linear timing, and play it once */
+    animation: entrance 6s  infinite; 
   }
 
   .h4BrandSlogan {
-    animation: entrance2 6s  infinite; /* Apply the entrance animation with a duration of 3 seconds, linear timing, and play it once */
+    animation: entrance2 6s  infinite; 
   }
 
 header h1 {
@@ -121,10 +121,10 @@ header h4 {
 
   @keyframes entrance2 {
     0% {
-      transform: translateY(450%); /* Start from all the way at the top */
+      transform: translateY(450%); /* Start from all the way at the bottom */
     }
     30% {
-      transform: translateY(-450%); /* Move to the bottom */
+      transform: translateY(-450%); /* Move to the top */
     }
     90%,100% {
       transform: translateY(0%); /* Settle in the normal position */

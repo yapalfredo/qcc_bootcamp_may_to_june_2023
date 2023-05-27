@@ -175,6 +175,8 @@ p._inside {
  }
 
 .productSize {
+    text-align: center;
+    width: 250px;
     font-size: smaller;
 }
 

@@ -3,7 +3,7 @@ body {
 }
 
 hr {
-border-top: 1px solid black;
+    border-top: 1px solid black;
 
 }
 
@@ -111,7 +111,7 @@ header h4 {
 }
 
 .imageWithText {
-    background-image:  linear-gradient( 45deg, rgba(97, 97, 97, 0.66), rgba(175, 44, 44, 0.33), rgba(97, 97, 97,  0.33), rgba(228, 103, 103, 0.66)) ,url("images/intro_img1.jpg");
+    background-image: linear-gradient(45deg, rgba(97, 97, 97, 0.66), rgba(175, 44, 44, 0.33), rgba(97, 97, 97, 0.33), rgba(228, 103, 103, 0.66)), url("images/intro_img1.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -120,10 +120,10 @@ header h4 {
 }
 
 p._inside {
-    border: 1px solid #808102 ;
+    border: 1px solid #808102;
     color: white;
     width: 40%;
-    padding: 20px;   
+    padding: 20px;
     text-shadow: 1px 1px 3px black;
     margin-left: 20px;
     margin-top: 20px;
@@ -137,18 +137,18 @@ p._inside {
 }
 
 ._box div:last-child {
-   color: #808102;
+    color: #808102;
 }
 
 ._box div {
     padding: 25px;
- }
+}
 
-.oneByThreeContainer{
+.oneByThreeContainer {
     margin-top: 25px;
     width: 100%;
     display: flex;
-   justify-content: space-evenly;
+    justify-content: space-evenly;
 }
 
 .productContainer {
@@ -156,23 +156,26 @@ p._inside {
     flex-direction: column;
     align-items: center;
 }
+
 .child {
     margin-top: 0;
     margin-bottom: 8px;
-  }
+}
 
- .productContainer img {
+.productContainer img {
     height: 200px;
- }
+}
 
- .productName, .productType {
+.productName,
+.productType,
+.modalProductType {
     font-weight: bold;
- }
+}
 
- .productName {
+.productName {
     font-size: small;
     color: #808102
- }
+}
 
 .productSize {
     text-align: center;
@@ -181,7 +184,7 @@ p._inside {
 }
 
 .btnAddToBag {
-    text-decoration: none; 
+    text-decoration: none;
     font-size: smaller;
     color: white;
     background-color: black;
@@ -191,7 +194,7 @@ p._inside {
 }
 
 .btnAddToBag:hover {
-    background-color:grey;
+    background-color: grey;
 }
 
 .btnAddToBag::after {
@@ -199,19 +202,22 @@ p._inside {
     display: none;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* Center the message horizontally */
-    bottom: calc(100%); /* Position the message above the link */
+    transform: translateX(-50%);
+    /* Center the message horizontally */
+    bottom: calc(100%);
+    /* Position the message above the link */
     background-color: lightgrey;
     color: black;
     border: 1px solid lightgray;
     width: 130px;
     text-align: center;
     padding: 10px;
-  }
-  
-  .btnAddToBag:hover::after {
-    display: block; /* Show the message when hovering */
-  }
+}
+
+.btnAddToBag:hover::after {
+    display: block;
+    /* Show the message when hovering */
+}
 
 
 footer {
@@ -235,20 +241,21 @@ footer {
     align-items: center;
 }
 
-.topSectionColumn p, .rightAlignedSection p {
+.topSectionColumn p,
+.rightAlignedSection p {
     font-weight: bold;
     font-size: small;
 }
 
-.topSectionColumn  a {
+.topSectionColumn a {
     text-decoration: none;
     color: white;
-    font-weight: lighter; 
+    font-weight: lighter;
     font-size: smaller;
 }
 
 ._divider {
-    padding-top:50px;
+    padding-top: 50px;
 }
 
 .footerHr {
@@ -276,48 +283,6 @@ footer {
     padding-bottom: 5px;
     font-size: x-small;
     text-align: center;
-}
-
-@media (max-width: 600px) {
-    .slide {
-        font-size: small;
-    }
-
-    .headerBrandDescription {
-        font-size: x-small;
-    }
-
-    .heroText, p._inside, ._box  {
-        font-size: smaller;
-    }
-
-    .oneByThreeContainer {
-        flex-direction: column;
-    }
-
-    .productContainer {
-        margin-bottom: 50px;
-    }
-
-    .topSection {
-        flex-direction: column;
-        font-size: smaller;
-    }
-
-    .topSectionColumn {
-        margin-bottom: 20px;
-    }
-
-    .rightAlignedSection {
-        align-items: center;
-        font-size: smaller;
-        margin-right: 0%;
-    }
-
-    ._bottomCenter{
-        padding: 5px;
-    }
- 
 }
 
 @keyframes zoomIn {
@@ -395,4 +360,196 @@ footer {
     100% {
         margin-left: -100%;
     }
+}
+
+.close {
+    color: black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: lightgray;
+    font-size: large;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.btnContinueShopping,
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal:target {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal {
+    opacity: 0;
+    pointer-events: none;
+    background-color: rgba(55, 55, 55, 0.5);
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    transition: opacity 0.3s;
+}
+
+.modalContent {
+    position: relative;
+    background-color: white;
+    color: black;
+    width: 60%;
+    padding: 25px;
+}
+
+.modalContentBottom {
+    width: 60%;
+    background-color: lightgray;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+
+}
+
+.modalContentBottom p {
+    text-align: center;
+}
+
+.modalContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.spacerBottom {
+    margin-bottom: 30px;
+}
+
+.modalHR {
+    border: 2px solid lightgray;
+}
+
+.modalHRBottom {
+    border: 2px solid white;
+}
+
+.modalContentContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.modalContentContainer img {
+    height: 250px;
+}
+
+.modalContentContainer .modalText {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.modalProductType {
+    font-size: x-large;
+}
+
+.modalProductPrize {
+    font-size: larger;
+}
+
+.btnContinueShopping {
+
+    background-color: white;
+    padding: 10px;
+}
+
+.giftset {
+    margin-left: 25px;
+}
+
+@media (max-width: 600px) {
+    .slide {
+        font-size: small;
+    }
+
+    .headerBrandDescription {
+        font-size: x-small;
+    }
+
+    .heroText,
+    p._inside,
+    ._box {
+        font-size: smaller;
+    }
+
+    .oneByThreeContainer {
+        flex-direction: column;
+    }
+
+    .productContainer {
+        margin-bottom: 50px;
+    }
+
+    .topSection {
+        flex-direction: column;
+        font-size: smaller;
+    }
+
+    .topSectionColumn {
+        margin-bottom: 20px;
+    }
+
+    .rightAlignedSection {
+        align-items: center;
+        font-size: smaller;
+        margin-right: 0%;
+    }
+
+    ._bottomCenter {
+        padding: 5px;
+    }
+
+    .modalContentContainer {
+        flex-direction: column;
+    }
+
+    .modalContentContainer img {
+        height: 100px;
+    }
+
+    .modalText {
+        text-align: center;
+    }
+
+    .modalText p {
+        margin: 0 0;
+        font-size: medium;
+    }
+
+    .modalText p:not(:last-of-type) {
+        margin-bottom: 10px;
+    }
+
+    .modalContentBottom {
+        font-size: small;
+    }
+
+    .giftset {
+        margin-left: 0;
+    }
+
+
 }

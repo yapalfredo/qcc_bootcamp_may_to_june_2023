@@ -9,6 +9,10 @@ header {
     padding: 5px;
 }
 
+.imgLogo {
+    animation: zoomIn 0.8s linear infinite; /* Apply the zoomIn animation with a duration of 3 seconds, linear timing, and infinite repetition */
+  }
+
 header h1 {
     font-style: italic;
     color: #808008;
@@ -17,16 +21,16 @@ header h1 {
 header div img {
     width: 100px;
     border: 2px solid #7f8000;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 header h1,
-header h5 {
+header h4 {
     margin: 0 0;
 }
 
 .headerBrandDescription {
-    margin-left: 10px
+    margin-left: 25px
 }
 
 .slideShowStage {
@@ -61,6 +65,37 @@ header h5 {
     background-color: #dec866;
     color: black;
 }
+
+.heroImageContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    background-image: url("images/intro_img2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  
+}
+
+@media (max-width: 600px) {
+    .slide {
+        font-size: small;
+    }
+
+    .headerBrandDescription {
+        font-size: x-small;
+    }
+}
+    
+@keyframes zoomIn {
+    0% {
+      transform: scale(0.1); /* Start with a smaller scale */
+    }
+    100% {
+      transform: scale(1); /* Scale up to the original size */
+    }
+  }
 
 @keyframes slideshow  {
     0%, 20%{margin-left: -100%; }

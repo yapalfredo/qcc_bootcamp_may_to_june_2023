@@ -2,6 +2,11 @@ body {
     background-color: #ffffe0;
 }
 
+hr {
+border-top: 1px solid black;
+
+}
+
 header {
     display: flex;
     align-items: center;
@@ -86,14 +91,98 @@ header h4 {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
+    margin-bottom: 25px;
 }
 
 .heroText {
     background-color: #b4b2b3;
     width: 30%;
-    left: 5% ;    
+    left: 5%;
     position: absolute;
-    border: 2px solid white;
+    border: 3px solid white;
+    padding: 10px;
+}
+
+.oneByTwo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.imageWithText {
+    background-image:  linear-gradient( 45deg, rgba(97, 97, 97, 0.66), rgba(175, 44, 44, 0.33), rgba(97, 97, 97,  0.33), rgba(228, 103, 103, 0.66)) ,url("images/intro_img1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: brightness(150%);
+    opacity: .9;
+}
+
+p._inside {
+    border: 1px solid #808102 ;
+    color: white;
+    width: 40%;
+    padding: 20px;   
+    text-shadow: 1px 1px 3px black;
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: rgba(97, 97, 97, 0.15);
+}
+
+._box {
+    width: 45vw;
+    height: 35vh;
+    background-color: rgba(97, 97, 97, 0.20);
+}
+
+._box div:last-child {
+   color: #808102;
+}
+
+._box div {
+    padding: 25px;
+ }
+
+.oneByThreeContainer{
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+   justify-content: space-evenly;
+}
+
+.productContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.child {
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
+ .productContainer img {
+    height: 200px;
+ }
+
+ .productName, .productType {
+    font-weight: bold;
+ }
+
+ .productName {
+    font-size: small;
+    color: #808102
+ }
+
+.productSize {
+    font-size: smaller;
+}
+
+.btnAddToBag {
+    text-decoration: none; 
+    font-size: smaller;
+    color: white;
+    background-color: black;
     padding: 10px;
 }
 
@@ -106,8 +195,19 @@ header h4 {
         font-size: x-small;
     }
 
-.heroText {
-    font-size: small;
+    .heroText, p._inside, ._box  {
+        font-size: smaller;
+    }
+
+    .oneByThreeContainer {
+        flex-direction: column;
+    }
+
+    .productContainer {
+        margin-bottom: 50px;
+    }
+
+ 
 }
 
 @keyframes zoomIn {
@@ -117,7 +217,8 @@ header h4 {
         /* Start with a smaller scale */
     }
 
-    75%,100% {
+    75%,
+    100% {
         transform: scale(1);
         /* Scale up to the original size */
     }

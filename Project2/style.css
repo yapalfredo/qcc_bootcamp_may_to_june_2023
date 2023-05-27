@@ -85,7 +85,16 @@ header h4 {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    position: relative;
+}
 
+.heroText {
+    background-color: #b4b2b3;
+    width: 30%;
+    left: 5% ;    
+    position: absolute;
+    border: 2px solid white;
+    padding: 10px;
 }
 
 @media (max-width: 600px) {
@@ -96,6 +105,9 @@ header h4 {
     .headerBrandDescription {
         font-size: x-small;
     }
+
+.heroText {
+    font-size: small;
 }
 
 @keyframes zoomIn {

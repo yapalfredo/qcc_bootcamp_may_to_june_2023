@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <div>
-        <h1>Part A - BMI (Body Mass Index)</h1>
+    <div class="bodyMassIndexContainer">
+        <h1>BMI (Body Mass Index)</h1>
         <form>
             <input class="inputTextField" type="text" id="inputHeightLucas"
                 placeholder="Enter Lucas' Height in meter (ex: 1.69)">
@@ -24,9 +24,29 @@
             <br>
             <input class="inputTextField" type="text" id="inputWeightPeter" placeholder="Enter Peter's Weight in kg ">
             <br>
-            <input type="button" id="button BMI" value="Calculate BMI" onclick="calculate()">
+            <input type="button" id="buttonBMI" value="Calculate BMI" onclick="calculateBMI()">
             <br>
             <label id="labelBMIResult"></label>
+        </form>
+    </div>
+    <div class="temperatureConverterContainer">
+        <h1>Temperature Converter</h1>
+        <form>
+            <input class="inputTextField" type="text" id="inputTemperatureCelcius"
+                placeholder="Enter Temperature in Celsius">
+            <br>
+            <input type="button" id="buttonCelciusTemperature" value="Convert To Fahrenheit"
+                onclick="CovertCelsiusToFahrenheit()">
+            <br>
+            <label id="labelCelsiusTemperatureResult"></label>
+
+            <input class="inputTextField" type="text" id="inputTemperatureFahrenhei"
+                placeholder="Enter Temperature in Celsius">
+            <br>
+            <input type="button" id="buttonFahrenheitTemperature" value="Convert To Celsius"
+                onclick="CovertFahrenheitToCelsius()">
+            <br>
+            <label id="labelFahrenheitTemperatureResult"></label>
         </form>
 
     </div>

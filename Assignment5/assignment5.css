@@ -1,4 +1,8 @@
-.inputTextField {
+.inputTextField, #buttonCelciusTemperature, #buttonFahrenheitTemperature {
     margin-bottom: 10px;
+
+}
+
+.inputTextField{
     width: 300px;
 }

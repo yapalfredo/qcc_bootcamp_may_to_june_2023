@@ -1,4 +1,4 @@
-calculate = () => {
+calculateBMI = () => {
   const inputHeightLucas = document.getElementById('inputHeightLucas');
   const inputWeightLucas = document.getElementById('inputWeightLucas');
   const inputHeightPeter = document.getElementById('inputHeightPeter');
@@ -23,16 +23,8 @@ calculate = () => {
     alert('Please enter numbers only');
     return;
   } else {
-    const bmiLucas = calculateBMI(
-      inputHeightLucas.value,
-      inputWeightLucas.value
-    );
-    const bmiPeter = calculateBMI(
-      inputHeightPeter.value,
-      inputWeightPeter.value
-    );
-
-    //return an alert with the result
+    const bmiLucas = getBMI(inputHeightLucas.value, inputWeightLucas.value);
+    const bmiPeter = getBMI(inputHeightPeter.value, inputWeightPeter.value);
 
     console.log(
       `The BMI of Peter is ${bmiPeter}, and the BMI of Lucas is ${bmiLucas}, Peter's BMI is higher than Lucas' BMI that is ${
@@ -46,6 +38,6 @@ calculate = () => {
   }
 };
 
-calculateBMI = (height, weight) => {
+getBMI = (height, weight) => {
   return (weight / (height * height)).toFixed(2);
 };

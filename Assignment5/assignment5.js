@@ -4,37 +4,54 @@ calculateBMI = () => {
   const inputHeightPeter = document.getElementById('inputHeightPeter');
   const inputWeightPeter = document.getElementById('inputWeightPeter');
 
-  const labelBMIResult = document.getElementById('labelBMIResult');
+  const labelPartAResult = document.getElementById('labelPartAResult');
+  const labelPartCResult = document.getElementById('labelPartCResult');
+
+  const lucasWeight = inputWeightLucas.value.trim();
+  const lucasHeight = inputHeightLucas.value.trim();
+  const peterWeight = inputWeightPeter.value.trim();
+  const peterHeight = inputHeightPeter.value.trim();
 
   if (
-    inputHeightLucas.value === '' ||
-    inputWeightLucas.value === '' ||
-    inputHeightPeter.value === '' ||
-    inputWeightPeter.value === ''
+    lucasWeight === '' ||
+    lucasHeight === '' ||
+    peterWeight === '' ||
+    peterHeight === ''
   ) {
     alert('Please fill all fields');
     return;
   } else if (
-    isNaN(inputHeightLucas.value) ||
-    isNaN(inputWeightLucas.value) ||
-    isNaN(inputHeightPeter.value) ||
-    isNaN(inputWeightPeter.value)
+    isNaN(lucasWeight) ||
+    isNaN(lucasHeight) ||
+    isNaN(peterWeight) ||
+    isNaN(peterHeight)
   ) {
     alert('Please enter numbers only');
     return;
   } else {
-    const bmiLucas = getBMI(inputHeightLucas.value, inputWeightLucas.value);
-    const bmiPeter = getBMI(inputHeightPeter.value, inputWeightPeter.value);
+    const bmiLucas = getBMI(lucasHeight, lucasWeight);
+    const bmiPeter = getBMI(peterHeight, peterWeight);
 
-    console.log(
-      `The BMI of Peter is ${bmiPeter}, and the BMI of Lucas is ${bmiLucas}, Peter's BMI is higher than Lucas' BMI that is ${
-        bmiPeter > bmiLucas
-      }`
-    );
+    //Part A Result
+    const lucasHigherBMI = bmiPeter > bmiLucas;
+    const partAResult = `The BMI of Peter is ${bmiPeter}, and the BMI of Lucas is ${bmiLucas}, Peter's BMI is higher than Lucas' BMI that is ${lucasHigherBMI}`;
+    console.log('---------------------------------');
+    console.log('Part A Result:');
+    console.log(partAResult);
+    console.log('---------------------------------');
+    labelPartAResult.innerHTML =
+      `<b>Part A Result:</b><br> ` + partAResult + `<br>`;
 
-    labelBMIResult.innerHTML = `Lucas BMI: ${bmiLucas} <br> Peter BMI: ${bmiPeter} <br> Lucas BMI is ${
+    //Part C Result
+    const partCResult = `Lucas' BMI (${bmiLucas}) is ${
       bmiLucas > bmiPeter ? 'higher' : 'lower'
-    } than Peter's`;
+    } than Peter's BMI (${bmiPeter})!`;
+    console.log('---------------------------------');
+    console.log('Part C Result:');
+    console.log(partCResult);
+    console.log('---------------------------------');
+    labelPartCResult.innerHTML =
+      `<b>Part C Result:</b><br> ` + partCResult + `<br>`;
   }
 };
 

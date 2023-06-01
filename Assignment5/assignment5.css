@@ -1,8 +1,70 @@
+body, header, .formBMI, .formTempConversion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    width: 100%;
+    color: white;
+    margin-bottom: 50px;
+}
+
+
 .inputTextField, #buttonCelciusTemperature, #buttonFahrenheitTemperature {
     margin-bottom: 10px;
 
 }
 
-.inputTextField{
+.inputTextField, .formBMI{
     width: 300px;
+}
+
+.formButtons{
+    border: none;
+    align-self: center;
+}
+
+#buttonBMI {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#buttonBMI:hover {
+    background-color: #45a049;
+}
+
+#buttonCelciusTemperature, #buttonFahrenheitTemperature {
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#buttonCelciusTemperature{
+    background-color: #008CBA;
+}
+
+#buttonCelciusTemperature:hover {
+    background-color: #007a99;
+}
+
+#buttonFahrenheitTemperature{
+    background-color: #f44336;
+}
+
+#buttonFahrenheitTemperature:hover {
+    background-color: #d3392e;
+}
+
+.temperatureConverterContainer {
+    margin-top: 20px;
 }

@@ -11,48 +11,56 @@
 </head>
 
 <body>
+    <header>
+        <h1>Assignment 5</h1>
+    </header>
     <div class="bodyMassIndexContainer">
-        <h1>BMI (Body Mass Index)</h1>
-        <form>
-            <input class="inputTextField" type="text" id="inputHeightLucas"
-                placeholder="Enter Lucas' Height in meter (ex: 1.69)">
-            <br>
-            <input class="inputTextField" type="text" id="inputWeightLucas"
-                placeholder="Enter Lucas' Weight in kg (ex: 78)">
-            <br>
-            <input class="inputTextField" type="text" id="inputHeightPeter" placeholder="Enter Peter's Height in meter">
-            <br>
-            <input class="inputTextField" type="text" id="inputWeightPeter" placeholder="Enter Peter's Weight in kg ">
-            <br>
-            <input type="button" id="buttonBMI" value="Calculate BMI" onclick="calculateBMI()">
-            <br>
-            <label id="labelPartAResult"></label>
-            <br>
-            <label id="labelPartCResult"></label>
-        </form>
+        <h2>BMI (Body Mass Index)</h1>
+            <form class="formBMI">
+                <input class="inputTextField" type="text" id="inputHeightLucas"
+                    placeholder="Enter Lucas' Height in meter (ex: 1.69)">
+                <br>
+                <input class="inputTextField" type="text" id="inputWeightLucas"
+                    placeholder="Enter Lucas' Weight in kg (ex: 78)">
+                <br>
+                <input class="inputTextField" type="text" id="inputHeightPeter"
+                    placeholder="Enter Peter's Height in meter">
+                <br>
+                <input class="inputTextField" type="text" id="inputWeightPeter"
+                    placeholder="Enter Peter's Weight in kg ">
+                <br>
+                <input class="formButtons" type="button" id="buttonBMI" value="Calculate BMI" onclick="calculateBMI()">
+                <br>
+                <label id="labelPartAResult"></label>
+                <br>
+                <label id="labelPartCResult"></label>
+            </form>
     </div>
 
     <div class="temperatureConverterContainer">
-        <h1>Temperature Converter</h1>
-        <form>
-            <input class="inputTextField" type="text" id="inputTemperatureCelcius"
-                placeholder="Enter Temperature in Celsius">
-            <br>
-            <input type="button" id="buttonCelciusTemperature" value="Convert To Fahrenheit"
-                onclick="CovertCelsiusToFahrenheit()">
-            <br>
-            <label id="labelCelsiusTemperatureResult"></label>
+        <h2>Temperature Converter</h1>
+            <form class="formTempConversion">
+                <input class="inputTextField" type="text" id="inputTemperatureCelcius"
+                    placeholder="Enter Temperature in Celsius">
+                <br>
+                <input class="formButtons" type="button" id="buttonCelciusTemperature" value="Convert To Fahrenheit"
+                    onclick="ConvertCelsiusToFahrenheit()">
+                <br>
+                <label id="labelCelsiusTemperatureResult"></label>
 
-            <input class="inputTextField" type="text" id="inputTemperatureFahrenhei"
-                placeholder="Enter Temperature in Celsius">
-            <br>
-            <input type="button" id="buttonFahrenheitTemperature" value="Convert To Celsius"
-                onclick="CovertFahrenheitToCelsius()">
-            <br>
-            <label id="labelFahrenheitTemperatureResult"></label>
-        </form>
+                <input class="inputTextField" type="text" id="inputTemperatureFahrenheit"
+                    placeholder="Enter Temperature in Fahrenheit">
+                <br>
+                <input class="formButtons" type="button" id="buttonFahrenheitTemperature" value="Convert To Celsius"
+                    onclick="ConvertFahrenheitToCelsius()">
+                <br>
+                <label id="labelFahrenheitTemperatureResult"></label>
+            </form>
 
     </div>
+    <footer>
+
+    </footer>
 </body>
 
 

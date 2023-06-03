@@ -35,7 +35,7 @@
         <!-- mid row -->
 
         <div class="midRowContainer">
-            <div class="startScreenContainer">
+            <div class="startScreenContainer" id="midRow_start">
                 <img class="startScreenChild" id="midScreenIcon" src="images/confused.png"
                     alt="https://www.flaticon.com/free-icons/question">
                 <input class="startScreenChild" id="midScreenInputText" type="text" id="inputGuess"
@@ -44,7 +44,7 @@
                 <h4 class="startScreenChild" id="midScreenMessageArea">Guess a Number</h4>
             </div>
 
-            <div class="startScreenContainer you_won">
+            <div class="startScreenContainer you_won hide_this" id="midRow_won">
                 <img class="startScreenChild no_left_margin" id="midScreenIcon_no_margin" src="images/you.png"
                     alt="https://www.flaticon.com/free-icons/you">
                 <p class="largerFont">Congratulations</p>
@@ -55,7 +55,7 @@
                 <p id="midScreenCheckButton">Play Again</p>
             </div>
 
-            <div class="startScreenContainer you_lost">
+            <div class="startScreenContainer you_lost hide_this" id="midRow_lost">
                 <img class="startScreenChild no_left_margin" id="midScreenIcon_no_margin" src="images/game-over.png"
                     alt="https://www.flaticon.com/free-icons/game-over">
                 <p class="largerFont">Unfortunately You Lost The Game</p>

@@ -1,11 +1,11 @@
 body {
     background-color: #b6e9ea;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .titleAreaContainer h1,
-.titleAreaContainer h3 {
+.titleAreaContainer h3, #h4Score {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 0;
 }
 
@@ -14,15 +14,76 @@ body {
     text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
 }
 
-.titleAreaContainer h3 {
+.titleAreaContainer h3, #h4HighScore {
     margin-top: 5px;
+}
+
+
+.middleAreaContainer, .topRowContainer, .leftContainer, .rightContainer {
+    display: flex;
+}
+
+.leftContainer, .rightContainer {
+    align-items: center;
+    justify-content: center;
+}
+
+.middleAreaContainer, .leftContainer{
+    flex-direction: column;
 }
 
 .middleAreaContainer {
     margin: auto;
-    display: flex;
     margin-top: 20px;
     background-color: #edf6e5;
     width: 300px;
     height: 300px;
+}
+
+.topRowContainer{
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.leftContainer {
+    background-color: #ffbcbd;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.topRowContainer .h4HighScore {
+    margin-top: 5px;
+}
+
+.topRowContainer .rightContainer h4 {
+    background-color: #ffbcbd;
+    padding: 20px;
+}
+
+.leftContainer, .rightContainer h4 {
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    
+}
+
+
+
+
+
+
+
+.rightContainer #h4Reset {
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 0px rgba(9, 9, 226, 0.75);
+}
+
+
+
+
+.disable-select {
+    -webkit-user-select: none;  
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+    user-select: none;         
 }

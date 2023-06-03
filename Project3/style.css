@@ -1,11 +1,27 @@
 body {
-    background-color: #b6e9ea;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+body,
+.bottomRowContainer {
+    background-color: #b6e9ea;
+}
+
+
 .titleAreaContainer h1,
-.titleAreaContainer h3, #h4Score {
+.titleAreaContainer h3,
+#h4Score,
+.startScreenContainer,
+#midScreenInputText,
+.you_won {
     text-align: center;
+}
+
+
+.titleAreaContainer h1,
+.titleAreaContainer h3,
+#h4Score {
     margin-bottom: 0;
 }
 
@@ -14,76 +30,221 @@ body {
     text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
 }
 
-.titleAreaContainer h3, #h4HighScore {
+.titleAreaContainer h3,
+#h4HighScore {
     margin-top: 5px;
 }
 
+/* 
 
-.middleAreaContainer, .topRowContainer, .leftContainer, .rightContainer {
+card effect box shadow to middleAreaContainer
+make it lighter than current color of middleAreaContainer
+
+*/
+.middleAreaContainer,
+.bottomRowContainer,
+.startScreenContainer {
+    box-shadow: 0px 0px 5px 0px rgba(156, 156, 156, 0.493);
+}
+
+
+/* set to flex */
+.middleAreaContainer,
+.topRowContainer,
+.leftContainer,
+.rightContainer,
+.midRowContainer,
+.startScreenContainer,
+.bottomRowContainer {
     display: flex;
 }
 
-.leftContainer, .rightContainer {
+/* flex center center */
+.leftContainer,
+.rightContainer,
+.startScreenContainer,
+.bottomRowContainer {
     align-items: center;
     justify-content: center;
 }
 
-.middleAreaContainer, .leftContainer{
+.middleAreaContainer,
+.leftContainer,
+.midRowContainer,
+.startScreenContainer {
     flex-direction: column;
+}
+
+
+.midRowContainer {
+    width: 80%;
+    align-self: center;
+}
+
+.middleAreaContainer,
+#midScreenInputText {
+    background-color: #edf6e5;
 }
 
 .middleAreaContainer {
     margin: auto;
     margin-top: 20px;
-    background-color: #edf6e5;
-    width: 300px;
-    height: 300px;
+    width: 70%;
+    height: auto;
 }
 
-.topRowContainer{
+/* border radius */
+.middleAreaContainer,
+.leftContainer,
+.rightContainer h4,
+.startScreenContainer,
+#midScreenInputText,
+.bottomRowContainer {
+    border-radius: 15px;
+}
+
+#midScreenCheckButton {
+    border-radius: 10px;
+}
+
+/* end of border radius */
+
+
+.topRowContainer {
     justify-content: space-between;
     padding: 10px;
 }
 
-.leftContainer {
+.leftContainer,
+.topRowContainer .rightContainer h4 {
     background-color: #ffbcbd;
+}
+
+.leftContainer,
+.rightContainer h4,
+#midScreenCheckButton {
     padding-left: 15px;
     padding-right: 15px;
 }
-
 
 .topRowContainer .h4HighScore {
     margin-top: 5px;
 }
 
-.topRowContainer .rightContainer h4 {
-    background-color: #ffbcbd;
-    padding: 20px;
+.leftContainer,
+.rightContainer h4 {
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
 }
 
-.leftContainer, .rightContainer h4 {
-    border-radius: 15px;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    
+/* buttons */
+.rightContainer #h4Reset {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
+#midScreenCheckButton {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* end of buttons */
 
 
-
-
+/* cursor effect */
+.rightContainer #h4Reset,
+#midScreenCheckButton {
+    cursor: pointer;
+}
 
 
 .rightContainer #h4Reset {
-  cursor: pointer;
-  box-shadow: 0px 0px 5px 0px rgba(9, 9, 226, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(9, 9, 226, 0.75);
+}
+
+.rightContainer #h4Reset:hover {
+    background-color: #ffdfdf;
+}
+
+.disable-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.startScreenContainer {
+    background-color: #c1ad95;
+    width: auto;
+    height: 300px;
+    margin: 20px;
+}
+
+#midScreenIcon,
+#midScreenIcon_no_margin {
+    height: 75px;
+}
+
+#midScreenIcon {
+    margin-left: 1.5rem;
+}
+
+#midScreenInputText {
+    border: none;
+    padding: 10px;
+}
+
+#midScreenCheckButton {
+    font-size: smaller;
+    font-weight: lighter;
+    background-color: #5eac31;
+    box-shadow: 0px 0px 5px 0px rgba(77, 143, 38, 0.75);
+}
+
+#midScreenCheckButton:hover {
+    background-color: #7ebd42;
 }
 
 
+/* font color */
+#midScreenCheckButton,
+#midScreenMessageArea {
+    color: white;
+}
 
 
-.disable-select {
-    -webkit-user-select: none;  
-    -moz-user-select: none;     
-    -ms-user-select: none;      
-    user-select: none;         
+.startScreenChild {
+    margin-bottom: 10px;
+}
+
+
+.bottomRowContainer {
+    align-self: center;
+    width: 60%;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.you_won {
+    background-color: #c9e4c5;
+}
+
+.you_won p,
+.you_lost p {
+    margin: 0 0;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.hide_this {
+    display: none;
+}
+
+#secretNumber,
+.largerFont {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.lostFontStyle {
+    color: #685848;
 }

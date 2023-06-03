@@ -9,31 +9,79 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<!-- Title Area -->
-<div class="titleAreaContainer">
-    <h1>GUESS MY NUMBER</h1>
-    <h3>Guess the number between 1 and 100</h3>
-</div>
-
-<!-- Middle Content Area Container -->
-<div class="middleAreaContainer">
-
-    <!-- top row -->
-    <div class="topRowContainer">
-        <div class="leftContainer">
-            <h4 id="h4Score">Score: 10</h4>
-            <h4 id="h4HighScore">Highscore: 0</h4>
-        </div>
-
-        <div class="rightContainer">
-            <h4 id="h4Reset" class="disable-select ">Reset</h4>
-        </div>
-    </div>
-
-</div>
-
 <body>
 
+    <!-- Title Area -->
+    <div class="titleAreaContainer">
+        <h1>GUESS MY NUMBER</h1>
+        <h3>Guess the number between 1 and 100</h3>
+    </div>
+
+    <!-- Middle Content Area Container -->
+    <div class="middleAreaContainer">
+
+        <!-- top row -->
+        <div class="topRowContainer">
+            <div class="leftContainer">
+                <h4 id="h4Score">Score: 10</h4>
+                <h4 id="h4HighScore">Highscore: 0</h4>
+            </div>
+
+            <div class="rightContainer">
+                <h4 id="h4Reset" class="disable-select ">Reset</h4>
+            </div>
+        </div>
+
+        <!-- mid row -->
+
+        <div class="midRowContainer">
+            <div class="startScreenContainer">
+                <img class="startScreenChild" id="midScreenIcon" src="images/confused.png"
+                    alt="https://www.flaticon.com/free-icons/question">
+                <input class="startScreenChild" id="midScreenInputText" type="text" id="inputGuess"
+                    placeholder="Enter Guess">
+                <p class="startScreenChild" id="midScreenCheckButton">Check</p>
+                <h4 class="startScreenChild" id="midScreenMessageArea">Guess a Number</h4>
+            </div>
+
+            <div class="startScreenContainer you_won">
+                <img class="startScreenChild no_left_margin" id="midScreenIcon_no_margin" src="images/you.png"
+                    alt="https://www.flaticon.com/free-icons/you">
+                <p class="largerFont">Congratulations</p>
+                <p>Your guess was correct. <span id="secretNumber">41</span> is my secret
+                    number.</p>
+                <p class="largerFont">Your Score : <span id="yourScore">3</span></p>
+                <p><b>Best: <span id="bestScore">3</span></b></p>
+                <p id="midScreenCheckButton">Play Again</p>
+            </div>
+
+            <div class="startScreenContainer you_lost">
+                <img class="startScreenChild no_left_margin" id="midScreenIcon_no_margin" src="images/game-over.png"
+                    alt="https://www.flaticon.com/free-icons/game-over">
+                <p class="largerFont">Unfortunately You Lost The Game</p>
+                <p class="lostFontStyle">Don't give up and Try Again. You can win next time.</p>
+                <p class="lostFontStyle"> My number was: <span id="secretNumber">66</span></p>
+                <p id="midScreenCheckButton">Try Again</p>
+            </div>
+        </div>
+
+
+
+        <!-- end of mid row -->
+
+        <!-- 3rd row -->
+        <div class="bottomRowContainer">
+            <div class="bottomAreaContainer">
+                <h4 id="h4GuestHistory">Guess History</h1>
+                    <ul id="ulGuessHistory">
+                        <li>50</li>
+                        <li>25</li>
+                        <li>30</li>
+                    </ul>
+            </div>
+        </div>
+
+    </div>
 </body>
 
 </html>

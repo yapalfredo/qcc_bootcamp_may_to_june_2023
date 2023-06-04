@@ -41,12 +41,7 @@ body,
     margin-top: 5px;
 }
 
-/* 
 
-card effect box shadow to middleAreaContainer
-make it lighter than current color of middleAreaContainer
-
-*/
 .middleAreaContainer,
 .bottomRowContainer,
 .startScreenContainer {

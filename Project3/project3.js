@@ -23,7 +23,7 @@ initialLoading = () => {
   h4ScoreNumber.innerHTML = scoreVariable;
 };
 
-//function for detecting enter keydown , for midScreenInputText field.. do not use event listener
+//function for detecting enter keydown , for midScreenInputText field..
 detectEnterKey = (event) => {
   if (event.keyCode === 13) {
     validateInput();
@@ -154,7 +154,7 @@ youWin = () => {
   const yourScore = document.getElementById('yourScore');
   yourScore.textContent = scoreVariable;
 
-  //see if highScoreVariable is less than scoreVariable
+  //check if highScoreVariable is less than scoreVariable
   if (highScoreVariable < scoreVariable) {
     highScoreVariable = scoreVariable;
     assignHighScore();

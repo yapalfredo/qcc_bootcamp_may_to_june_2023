@@ -11,19 +11,6 @@ let guessMyNumber;
 let guessHistoryList;
 let guessHistoryArray;
 
-// this is loaded when the page is loaded
-// document.addEventListener('DOMContentLoaded', () => {
-//   guessHistoryList = document.getElementById('ulGuessHistory');
-//   guessMessageArea = document.getElementById('midScreenMessageArea');
-//   inputEnterGuess = document.getElementById('midScreenInputText');
-//   h4ScoreNumber = document.getElementById('h4ScoreNumber');
-
-//   // initialize other values
-//   resetGame(1);
-
-//   h4ScoreNumber.innerHTML = scoreVariable;
-// });
-
 initialLoading = () => {
   guessHistoryList = document.getElementById('ulGuessHistory');
   guessMessageArea = document.getElementById('midScreenMessageArea');
@@ -66,7 +53,7 @@ generateRandomNumber = () => {
   return Math.floor(Math.random() * 100) + 1;
 };
 
-// Reset Game
+// Start or reset Game
 resetGame = (val = 0) => {
   val === 1 ? (highScoreVariable = 0) : null;
 

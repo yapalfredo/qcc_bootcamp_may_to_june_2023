@@ -1,26 +1,42 @@
 let guessMessageArea;
 let inputEnterGuess;
 let scoreVariable;
+let highScoreVariable;
 let h4ScoreNumber;
+let guessMyNumber;
+let guessHistoryList;
+let guessHistoryArray;
 
 // this is loaded when the page is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  //call to initialize the random number
-  guessMyNumber = generateRandomNumber();
-  console.log(guessMyNumber);
-
-  //initialize the score
-  scoreVariable = 10;
-
+  guessHistoryList = document.getElementById('ulGuessHistory');
   guessMessageArea = document.getElementById('midScreenMessageArea');
   inputEnterGuess = document.getElementById('midScreenInputText');
   h4ScoreNumber = document.getElementById('h4ScoreNumber');
 
+  // initialize other values
+  resetGame(1);
+
   h4ScoreNumber.innerHTML = scoreVariable;
 });
 
-// Check Guess
-checkGuess = () => {};
+//assign High Score
+assignHighScore = () => {
+  const bestScore = document.getElementsByClassName('bestScore');
+  for (let i = 0; i < bestScore.length; i++) {
+    bestScore[i].textContent = highScoreVariable;
+  }
+};
+
+//assign secret number
+assingnSecretNumber = () => {
+  const secretNumber = document.getElementsByClassName('secretNumber');
+
+  //for each secret number, add the random number
+  for (let i = 0; i < secretNumber.length; i++) {
+    secretNumber[i].textContent = guessMyNumber;
+  }
+};
 
 // Generate Random Number
 generateRandomNumber = () => {
@@ -28,12 +44,25 @@ generateRandomNumber = () => {
 };
 
 // Reset Game
-resetGame = () => {
+resetGame = (val = 0) => {
+  val === 1 ? (highScoreVariable = 0) : null;
+
   guessMyNumber = generateRandomNumber();
   scoreVariable = 10;
   h4ScoreNumber.innerHTML = scoreVariable;
   resetInputandMessage();
-  console.log(guessMyNumber);
+  assignHighScore();
+  assingnSecretNumber();
+
+  //clear the guessHistoryArray
+  guessHistoryArray = [];
+
+  //clear the list of guessHistoryList
+  while (guessHistoryList.firstChild) {
+    guessHistoryList.removeChild(guessHistoryList.firstChild);
+  }
+
+  console.log(`The secret number is ${guessMyNumber}`);
 };
 
 // input validation
@@ -54,18 +83,27 @@ validateInput = () => {
       return;
     }
 
+    // if the guess already exists in the guessHistoryArray
+    if (guessHistoryArray.includes(parsedInput)) {
+      guessMessageArea.innerHTML = getResponseMessage(4);
+      return;
+    }
+
     if (parsedInput > guessMyNumber) {
       guessMessageArea.innerHTML = getResponseMessage(1);
+      guessHistory(parsedInput);
       updateScore();
     }
     if (parsedInput < guessMyNumber) {
       guessMessageArea.innerHTML = getResponseMessage(2);
+      guessHistory(parsedInput);
       updateScore();
     }
     if (parsedInput === guessMyNumber) {
       guessMessageArea.innerHTML = 'You guessed it right!';
       youWin();
     }
+    return;
   }
 };
 
@@ -80,7 +118,7 @@ getResponseMessage = (val = 0) => {
     case 3:
       return 'Guess a Number';
     default:
-      return;
+      return 'You already guessed this number';
   }
 };
 
@@ -94,7 +132,24 @@ updateScore = () => {
   }
 };
 
+guessHistory = (guess) => {
+  guessHistoryArray.push(guess);
+  console.log(...guessHistoryArray);
+  const li = document.createElement('li');
+  li.appendChild(document.createTextNode(inputEnterGuess.value.trim()));
+  guessHistoryList.appendChild(li);
+};
+
 youWin = () => {
+  const yourScore = document.getElementById('yourScore');
+  yourScore.textContent = scoreVariable;
+
+  //see if highScoreVariable is less than scoreVariable
+  if (highScoreVariable < scoreVariable) {
+    highScoreVariable = scoreVariable;
+    assignHighScore();
+  }
+
   gameProgress(0);
 };
 

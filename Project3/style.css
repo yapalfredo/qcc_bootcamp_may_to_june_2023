@@ -243,7 +243,7 @@ make it lighter than current color of middleAreaContainer
     visibility: hidden;
 }
 
-#secretNumber,
+.secretNumber,
 .largerFont {
     font-weight: bold;
     font-size: larger;

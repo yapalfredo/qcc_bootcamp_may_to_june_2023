@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 3</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="project3.js"></script>
 </head>
 
 <body>
@@ -28,7 +29,7 @@
             </div>
 
             <div class="rightContainer">
-                <h4 id="h4Reset" class="disable-select ">Reset</h4>
+                <h4 id="h4Reset" class="disable-select">Reset</h4>
             </div>
         </div>
 
@@ -40,7 +41,7 @@
                     alt="https://www.flaticon.com/free-icons/question">
                 <input class="startScreenChild" id="midScreenInputText" type="text" id="inputGuess"
                     placeholder="Enter Guess">
-                <p class="startScreenChild" id="midScreenCheckButton">Check</p>
+                <p class="startScreenChild disable-select check" id="midScreenCheckButton">Check</p>
                 <h4 class="startScreenChild" id="midScreenMessageArea">Guess a Number</h4>
             </div>
 
@@ -52,7 +53,7 @@
                     number.</p>
                 <p class="largerFont">Your Score : <span id="yourScore">3</span></p>
                 <p><b>Best: <span id="bestScore">3</span></b></p>
-                <p id="midScreenCheckButton">Play Again</p>
+                <p class="disable-select" id="midScreenCheckButton">Play Again</p>
             </div>
 
             <div class="startScreenContainer you_lost hide_this" id="midRow_lost">
@@ -61,7 +62,7 @@
                 <p class="largerFont">Unfortunately You Lost The Game</p>
                 <p class="lostFontStyle">Don't give up and Try Again. You can win next time.</p>
                 <p class="lostFontStyle"> My number was: <span id="secretNumber">66</span></p>
-                <p id="midScreenCheckButton">Try Again</p>
+                <p id="midScreenCheckButton" class="disable-select">Try Again</p>
             </div>
         </div>
 
@@ -74,9 +75,7 @@
             <div class="bottomAreaContainer">
                 <h4 id="h4GuestHistory">Guess History</h1>
                     <ul id="ulGuessHistory">
-                        <li>50</li>
-                        <li>25</li>
-                        <li>30</li>
+
                     </ul>
             </div>
         </div>

@@ -138,7 +138,7 @@ updateScore = () => {
 
 guessHistory = (guess) => {
   guessHistoryArray.push(guess);
-  console.log(...guessHistoryArray);
+  // console.log(...guessHistoryArray);
   const li = document.createElement('li');
   li.appendChild(document.createTextNode(inputEnterGuess.value.trim()));
   guessHistoryList.appendChild(li);

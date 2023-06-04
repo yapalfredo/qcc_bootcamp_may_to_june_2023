@@ -12,7 +12,19 @@ let guessHistoryList;
 let guessHistoryArray;
 
 // this is loaded when the page is loaded
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
+//   guessHistoryList = document.getElementById('ulGuessHistory');
+//   guessMessageArea = document.getElementById('midScreenMessageArea');
+//   inputEnterGuess = document.getElementById('midScreenInputText');
+//   h4ScoreNumber = document.getElementById('h4ScoreNumber');
+
+//   // initialize other values
+//   resetGame(1);
+
+//   h4ScoreNumber.innerHTML = scoreVariable;
+// });
+
+initialLoading = () => {
   guessHistoryList = document.getElementById('ulGuessHistory');
   guessMessageArea = document.getElementById('midScreenMessageArea');
   inputEnterGuess = document.getElementById('midScreenInputText');
@@ -22,7 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
   resetGame(1);
 
   h4ScoreNumber.innerHTML = scoreVariable;
-});
+};
+
+//function for detecting enter keydown , for midScreenInputText field.. do not use event listener
+detectEnterKey = (event) => {
+  if (event.keyCode === 13) {
+    validateInput();
+  }
+};
 
 //assign High Score
 assignHighScore = () => {

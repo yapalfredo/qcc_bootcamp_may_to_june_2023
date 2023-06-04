@@ -12,7 +12,7 @@
     <script type="text/javascript" src="project3.js"></script>
 </head>
 
-<body>
+<body onload="initialLoading()">
     <!-- Title Area -->
     <div class="titleAreaContainer">
         <h1>GUESS MY NUMBER</h1>
@@ -40,7 +40,8 @@
             <div class="startScreenContainer" id="midRow_start">
                 <img class="startScreenChild" id="midScreenIcon" src="images/confused.png"
                     alt="https://www.flaticon.com/free-icons/question">
-                <input class="startScreenChild" id="midScreenInputText" type="text" placeholder="Enter Guess">
+                <input class="startScreenChild" id="midScreenInputText" type="text" placeholder="Enter Guess"
+                    onkeydown="detectEnterKey(event)">
                 <p class="startScreenChild disable-select check" id="midScreenCheckButton" onclick="validateInput()">
                     Check</p>
                 <h4 class="startScreenChild" id="midScreenMessageArea">Guess a Number</h4>
@@ -67,20 +68,15 @@
             </div>
         </div>
 
-
-
         <!-- end of mid row -->
 
         <!-- 3rd row -->
         <div class="bottomRowContainer">
             <div class="bottomAreaContainer">
                 <h4 id="h4GuestHistory">Guess History</h1>
-                    <ul id="ulGuessHistory">
-
-                    </ul>
+                    <ul id="ulGuessHistory"></ul>
             </div>
         </div>
-
     </div>
 </body>
 

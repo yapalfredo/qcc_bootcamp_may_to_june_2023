@@ -1,3 +1,7 @@
+// Author: Alfredo Yap
+// Date: 06/04/2023
+// Project 3
+
 let guessMessageArea;
 let inputEnterGuess;
 let scoreVariable;

@@ -110,7 +110,7 @@ validateInput = () => {
       updateScore();
     }
     if (parsedInput === guessMyNumber) {
-      guessMessageArea.innerHTML = 'You guessed it right!';
+      guessMessageArea.innerHTML = getResponseMessage(5);
       youWin();
     }
     return;
@@ -127,8 +127,10 @@ getResponseMessage = (val = 0) => {
       return 'Your guess is low';
     case 3:
       return 'Guess a Number';
-    default:
+    case 4:
       return 'You already guessed this number';
+    default:
+      return 'You guessed it right!';
   }
 };
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Alfredo Yap">
+    <meta name="date" content="06/04/2023">
+    <title>Final Project</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_.css' ) }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png' ) }}" type="image/x-icon">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/project3.js') }}"></script>
+</head>
+
+<body onload="initialLoading()">
+    <!-- Title Area -->
+    <div class="titleAreaContainer">
+        <h1>GUESS MY NUMBER</h1>
+        <h3>Guess the number between 1 and 100</h3>
+    </div>
+
+    <!-- Middle Content Area Container -->
+    <div class="middleAreaContainer">
+
+        <!-- top row -->
+        <div class="topRowContainer" id="topRowContainer">
+            <div class="leftContainer">
+                <h4 id="h4Score">Score: <span id="h4ScoreNumber"></span></h4>
+                <h4 id="h4HighScore">Highscore: <span class="bestScore"></span></h4>
+            </div>
+
+            <div class="rightContainer">
+                <h4 id="h4Reset" class="disable-select" onclick="resetGame(1)">Reset</h4>
+            </div>
+        </div>
+
+        <!-- mid row -->
+
+        <div class="midRowContainer">
+            <div class="startScreenContainer" id="midRow_start">
+                <img class="startScreenChild" id="midScreenIcon"
+                    src="{{ url_for('static', filename='images/confused.png' ) }}"
+                    alt="https://www.flaticon.com/free-icons/question">
+                <input class="startScreenChild" id="midScreenInputText" type="text" placeholder="Enter Guess"
+                    onkeydown="detectEnterKey(event)">
+                <p class="startScreenChild disable-select check" id="midScreenCheckButton" onclick="validateInput()">
+                    Check</p>
+                <h4 class="startScreenChild" id="midScreenMessageArea">Guess a Number</h4>
+            </div>
+
+            <div class="startScreenContainer you_won hide_this" id="midRow_won">
+                <img class="startScreenChild no_left_margin" id="midScreenIcon_no_margin"
+                    src="{{ url_for('static', filename='images/you.png' ) }}"
+                    alt="https://www.flaticon.com/free-icons/you">
+                <p class="largerFont">Congratulations</p>
+                <p>Your guess was correct. <span class="secretNumber"></span> is my secret
+                    number.</p>
+                <p class="largerFont">Your Score : <span id="yourScore"></span></p>
+                <p><b>Best: <span class="bestScore"></span></b></p>
+                <p class="disable-select play-again" id="midScreenCheckButton" onclick="playAgain()">Play Again</p>
+            </div>
+
+            <div class="startScreenContainer you_lost hide_this" id="midRow_lost">
+                <img class="startScreenChild no_left_margin" id="midScreenIcon_no_margin"
+                    src="{{ url_for('static', filename='images/game-over.png' ) }}"
+                    alt="https://www.flaticon.com/free-icons/game-over">
+                <p class="largerFont">Unfortunately You Lost The Game</p>
+                <p class="lostFontStyle">Don't give up and Try Again. You can win next time.</p>
+                <p class="lostFontStyle"> My number was: <span class="secretNumber"></span></p>
+                <p id="midScreenCheckButton" class="disable-select try-again" onclick="playAgain()">Try Again</p>
+            </div>
+        </div>
+
+        <!-- end of mid row -->
+
+        <!-- 3rd row -->
+        <div class="bottomRowContainer">
+            <div class="bottomAreaContainer">
+                <h4 id="h4GuestHistory">Guess History</h1>
+                    <ul id="ulGuessHistory"></ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

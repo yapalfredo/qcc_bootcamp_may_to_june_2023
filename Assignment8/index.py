@@ -1,4 +1,9 @@
 # # # # # # # # # # # # # # # # # # # # # #
+# ALFREDO YAP                             #
+# ASSIGNMENT 8                            #
+# # # # # # # # # # # # # # # # # # # # # #
+
+# # # # # # # # # # # # # # # # # # # # # #
 # PART A                                  #
 # # # # # # # # # # # # # # # # # # # # # #
 # Create a list called myList with 8 values

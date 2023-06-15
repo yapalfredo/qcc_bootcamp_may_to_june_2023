@@ -12,10 +12,12 @@ signUp = () => {
   formLogin.className = 'login_form hide_this';
   formSignup.className = 'signup_form';
   homeH1.innerHTML = 'Sign Up';
+  document.title = 'Final Project - Sign Up';
 };
 
 logIn = () => {
   formLogin.className = 'login_form';
   formSignup.className = 'signup_form hide_this';
   homeH1.innerHTML = 'Login';
+  document.title = 'Final Project - Login';
 };

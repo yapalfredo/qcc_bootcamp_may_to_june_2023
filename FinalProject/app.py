@@ -1,49 +1,59 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
-
-app = Flask(__name__)
-
 # Load environment variables
 load_dotenv()
 
+app = Flask(__name__)
+app.secret_key = os.environ.get('SECRET_KEY')
+
 # MongoDB connection settings
-client = MongoClient(os.environ.get('MONGO_HOST'), 27017)
+client = MongoClient(os.environ.get('MONGO_HOST'))
 db = client['qcc_se_final_project']
 collection = db['users']
 
 
-# keeps track off whether the user is logged in or not
-current_user = None
-
-
 @app.route("/")
-#  if current_user is not None:
 def index():
-    if current_user is not None:
+    if 'current_user' in session:
         return render_template("index.html")
     else:
         return redirect(url_for('authenticate'))
 
 
-@app.route("/authenticate", methods=['GET', 'POST'])
+@app.route("/authenticate")
 def authenticate():
+    return render_template("home.html")
+
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
     if request.method == 'POST':
-        username = request.form.get('username')
-        # Check if the user is in the database or not
-        # If the user is in the database, then set user_logged_in to True
-        # Else flash an error message
-        user_logged_in = True  # Assuming the user is authenticated successfully
-        return redirect(url_for('index'))
+        # get username and password from form using ID
+        username = request.form['username']
+        password = request.form['password']
+
+        # check if username and password match
+        user = collection.find_one(
+            {"username": username, "password": password})
+
+        if user is None:
+            return render_template("home.html", error="Invalid username or password")
+        else:
+            user_dict = dict(user)
+            user_dict.pop('_id', None)  # Remove the ObjectId field
+            session['current_user'] = user_dict
+            return redirect(url_for('index'))
     else:
-        return render_template("home.html")
+        return redirect(url_for('index'))
 
 
 # logout route
 @app.route("/logout")
 def logout():
-    # set user_logged_in to false
+    # remove the current_user from the session
+    session.pop('current_user', None)
     return redirect(url_for('index'))
 
 

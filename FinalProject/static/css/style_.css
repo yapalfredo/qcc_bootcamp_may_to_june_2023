@@ -14,6 +14,11 @@ body,
 #h4Score,
 .startScreenContainer,
 #midScreenInputText,
+#loginUsername,
+#loginPassword,
+#signupUsername,
+#signupPassword,
+#signupConfirmPassword,
 .you_won {
     text-align: center;
 }
@@ -91,11 +96,23 @@ body,
 .rightContainer h4,
 .startScreenContainer,
 #midScreenInputText,
+#loginUsername,
+#loginPassword,
+#signupUsername,
+#signupPassword,
+#signupConfirmPassword,
 .bottomRowContainer {
     border-radius: 15px;
 }
 
-#midScreenCheckButton {
+#loginButton,
+#signUpButton {
+    border: none;
+}
+
+#midScreenCheckButton,
+#loginButton,
+#signUpButton {
     border-radius: 10px;
 }
 
@@ -112,7 +129,9 @@ body,
 
 .leftContainer,
 .rightContainer h4,
-#midScreenCheckButton {
+#midScreenCheckButton,
+#loginButton,
+#signUpButton {
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -131,13 +150,17 @@ body,
     padding-bottom: 15px;
 }
 
-#midScreenCheckButton {
+#midScreenCheckButton,
+#loginButton,
+#signUpButton {
     padding-top: 8px;
     padding-bottom: 8px;
 }
 
 .rightContainer #h4Reset,
-#midScreenCheckButton {
+#midScreenCheckButton,
+#loginButton,
+#signUpButton {
     cursor: pointer;
 }
 
@@ -173,25 +196,50 @@ body,
     margin-left: 1.5rem;
 }
 
-#midScreenInputText {
+#midScreenInputText,
+#loginUsername,
+#loginPassword,
+#signupUsername,
+#signupPassword,
+#signupConfirmPassword {
     border: none;
     padding: 10px;
 }
 
-#midScreenCheckButton {
+#midScreenCheckButtonm,
+#loginButton,
+#signUpButton {
     font-size: smaller;
     font-weight: lighter;
     background-color: #5eac31;
     box-shadow: 0px 0px 5px 0px rgba(77, 143, 38, 0.75);
 }
 
-#midScreenCheckButton:hover {
+#midScreenCheckButton:hover,
+#loginButton:hover,
+#signUpButton:hover {
     background-color: #7ebd42;
 }
 
 
+
+#signUpButton {
+    background-color: #3A89C9;
+    box-shadow: 0px 0px 5px 0px rgba(58, 137, 201, 0.75);
+}
+
+#signUpButton:hover {
+    background-color: #4CA7E8;
+    box-shadow: 0px 0px 5px 0px rgba(76, 167, 232, 0.75);
+}
+
+
+
+
 #midScreenCheckButton,
-#midScreenMessageArea {
+#midScreenMessageArea,
+#loginButton,
+#signUpButton {
     color: white;
 }
 
@@ -235,4 +283,26 @@ body,
 
 .lostFontStyle {
     color: #685848;
+}
+
+
+.dontHaveAnAccount {
+    font-size: smaller;
+}
+
+.spanSignUpLogin {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.signup_login_area {
+    width: 50%;
+}
+
+.signup_login_area_mid {
+    width: 95%
+}
+
+.signup_login_area_start {
+    margin: 10px;
 }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_.css' ) }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png' ) }}" type="image/x-icon">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/validations.js') }}"></script>
+</head>
+
+<body onload="onHomeLoad()">
+    <div class="titleAreaContainer">
+        <h1 id="homeH1">Login</h1>
+    </div>
+    <!-- Middle Content Area Container -->
+    <div class="middleAreaContainer signup_login_area">
+        <div class="midRowContainer signup_login_area_mid">
+            <div class="startScreenContainer signup_login_area_start" id="midRow_start">
+                <form action="/login" method="post" id="form_login" class="login_form">
+                    <div>
+                        <input type="text" class="startScreenChild" id="loginUsername" name="username"
+                            placeholder="username">
+                    </div>
+                    <div>
+                        <input type="password" class="startScreenChild" id="loginPassword" name="password"
+                            placeholder="password">
+                    </div>
+                    <div>
+                        <button class="startScreenChild" id="loginButton" type="submit">Login</button>
+                    </div>
+                    <div>
+                        <p class="dontHaveAnAccount">Don't have an account? <span class="spanSignUpLogin"
+                                onclick="signUp()">Sign up</span>
+                        </p>
+                    </div>
+                </form>
+
+
+                <form action="/signup" method="post" id="form_signup" class="logout_form hide_this">
+                    <div>
+                        <input type="text" class="startScreenChild" id="signupUsername" name="username"
+                            placeholder="username">
+                    </div>
+                    <div>
+                        <input type="password" class="startScreenChild" id="signupPassword" name="password"
+                            placeholder="password">
+                    </div>
+                    <div>
+                        <input type="password" class="startScreenChild" id="signupConfirmPassword" name="password"
+                            placeholder="confirm password">
+                    </div>
+                    <div>
+                        <button class="startScreenChild" id="signUpButton" type="submit">Sign Up</button>
+                    </div>
+                    <div>
+                        <p class="dontHaveAnAccount">Already have an account? <span class="spanSignUpLogin"
+                                onclick="logIn()">Login Here!</span>
+                        </p>
+                    </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

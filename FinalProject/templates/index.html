@@ -10,7 +10,7 @@
     <title>Final Project</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_.css' ) }}">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png' ) }}" type="image/x-icon">
-    <script type="text/javascript" src="{{ url_for('static', filename='js/project3.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/finalproject.js') }}"></script>
 </head>
 
 <body onload="initialLoading()">
@@ -83,9 +83,10 @@
         </div>
     </div>
     <div>
-        <p id="currentUser">Current User: <span id="currentUserName"></span></p>
-        <p id="currentUserHighScore">Current User High Score: <span id="currentUserHighScoreNumber"></span></p>
-        <p id="currenUserLogout" onclick="logout()">Logout</p>
+        <p id="currentUser">Current User: <span id="currentUserName">{{ username }}</span></p>
+        <p id="currentUserHighScore">Current User High Score: <span id="currentUserHighScoreNumber">{{ best
+                }}</span></p>
+        <p id="currenUserLogout" onclick="logOut()">Logout</p>
     </div>
 </body>
 

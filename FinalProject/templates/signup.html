@@ -4,41 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Project - Login</title>
+    <title>Final Project - Sign Up</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_.css' ) }}">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.png' ) }}" type="image/x-icon">
-    <script type="text/javascript" src="{{ url_for('static', filename='js/validations.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/finalproject.js') }}"></script>
 </head>
 
-<body onload="onHomeLoad()">
+<body>
     <div class="titleAreaContainer">
-        <h1 id="homeH1">Login</h1>
+        <h1 id="homeH1">Sign Up</h1>
     </div>
     <!-- Middle Content Area Container -->
     <div class="middleAreaContainer signup_login_area">
         <div class="midRowContainer signup_login_area_mid">
             <div class="startScreenContainer signup_login_area_start" id="midRow_start">
-                <form action="/login" method="post" id="form_login" class="login_form">
-                    <div>
-                        <input type="text" class="startScreenChild" id="loginUsername" name="username"
-                            placeholder="username">
-                    </div>
-                    <div>
-                        <input type="password" class="startScreenChild" id="loginPassword" name="password"
-                            placeholder="password">
-                    </div>
-                    <div>
-                        <button class="startScreenChild" id="loginButton" type="submit">Login</button>
-                    </div>
-                    <div>
-                        <p class="dontHaveAnAccount">Don't have an account? <span class="spanSignUpLogin"
-                                onclick="signUp()">Sign up</span>
-                        </p>
-                    </div>
-                </form>
-
-
-                <form action="/signup" method="post" id="form_signup" class="logout_form hide_this">
+                <form action="/signup" method="post" id="form_signup" class="logout_form">
                     <div>
                         <input type="text" class="startScreenChild" id="signupUsername" name="username"
                             placeholder="username">
@@ -48,9 +28,12 @@
                             placeholder="password">
                     </div>
                     <div>
-                        <input type="password" class="startScreenChild" id="signupConfirmPassword" name="password"
-                            placeholder="confirm password">
+                        <input type="password" class="startScreenChild" id="signupConfirmPassword"
+                            name="confirm_password" placeholder="confirm password">
                     </div>
+                    {% if error %}
+                    <div class="error startScreenChild">{{ error }}</div>
+                    {% endif %}
                     <div>
                         <button class="startScreenChild" id="signUpButton" type="submit">Sign Up</button>
                     </div>

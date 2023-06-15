@@ -211,3 +211,15 @@ resetInputandMessage = () => {
   guessMessageArea.innerHTML = getResponseMessage(3);
   inputEnterGuess.value = '';
 };
+
+logOut = () => {
+  window.location.href = '/logout';
+};
+
+signUp = () => {
+  window.location.href = '/signup';
+};
+
+logIn = () => {
+  window.location.href = '/login';
+};

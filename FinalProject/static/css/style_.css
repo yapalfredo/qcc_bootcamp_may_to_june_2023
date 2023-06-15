@@ -160,7 +160,8 @@ body,
 .rightContainer #h4Reset,
 #midScreenCheckButton,
 #loginButton,
-#signUpButton {
+#signUpButton,
+#currenUserLogout {
     cursor: pointer;
 }
 
@@ -276,7 +277,8 @@ body,
 }
 
 .secretNumber,
-.largerFont {
+.largerFont,
+.error {
     font-weight: bold;
     font-size: larger;
 }
@@ -305,4 +307,8 @@ body,
 
 .signup_login_area_start {
     margin: 10px;
+}
+
+.error {
+    color: red;
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project - Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_.css' ) }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png' ) }}" type="image/x-icon">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/finalproject.js') }}"></script>
+</head>
+
+<body onload="{% if success %}alert('{{ success }}');{% endif %}">
+    <div class=" titleAreaContainer">
+        <h1 id="homeH1">Login</h1>
+    </div>
+    <!-- Middle Content Area Container -->
+    <div class="middleAreaContainer signup_login_area">
+        <div class="midRowContainer signup_login_area_mid">
+            <div class="startScreenContainer signup_login_area_start" id="midRow_start">
+                <form action="/login" method="post" id="form_login" class="login_form">
+                    <div>
+                        <input type="text" class="startScreenChild" id="loginUsername" name="username"
+                            placeholder="username">
+                    </div>
+                    <div>
+                        <input type="password" class="startScreenChild" id="loginPassword" name="password"
+                            placeholder="password">
+                    </div>
+                    {% if error %}
+                    <div class="error startScreenChild" id="errorDiv">{{ error }}</div>
+                    {% endif %}
+                    <div>
+                        <button class="startScreenChild" id="loginButton" type="submit">Login</button>
+                    </div>
+                    <div>
+                        <p class="dontHaveAnAccount">Don't have an account? <span class="spanSignUpLogin"
+                                onclick="signUp()">Sign up</span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

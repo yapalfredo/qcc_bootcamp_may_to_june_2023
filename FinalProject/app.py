@@ -1,3 +1,7 @@
+# PROJECT NAME: FINAL_PROJECT
+# PURPOSE: This is the main file for the project. It contains the routes for this project.
+# AUTHOR: ALFREDO YAP
+
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session
 from pymongo import MongoClient
 from dotenv import load_dotenv
@@ -26,6 +30,10 @@ def index():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    # session  is active redirect to index
+    if 'current_user' in session:
+        return redirect(url_for('index'))
+
     if request.method == 'POST':
         # get username and password from form using ID
         username = request.form['username']
@@ -51,6 +59,10 @@ def login():
 
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
+    # session  is active redirect to index
+    if 'current_user' in session:
+        return redirect(url_for('index'))
+
     if request.method == 'POST':
         # get username and password from form using ID
         username = request.form['username']

@@ -2,9 +2,10 @@
 # PURPOSE: This is the main file for the project. It contains the routes for this project.
 # AUTHOR: ALFREDO YAP
 
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session
+from flask import Flask, render_template, request, redirect, url_for, session
 from pymongo import MongoClient
 from dotenv import load_dotenv
+
 import os
 # Load environment variables
 load_dotenv()
@@ -23,7 +24,8 @@ def index():
     if 'current_user' in session:
         username = session['current_user']['username']
         best = session['current_user']['best']
-        return render_template("index.html", username=username, best=best)
+        user_image_url = 'https://robohash.org/'+username
+        return render_template("index.html", username=username, best=best, user_image_url=user_image_url)
     else:
         return redirect(url_for('login'))
 
@@ -49,6 +51,7 @@ def login():
         if user is None:
             return render_template("login.html", error="Invalid username or password")
         else:
+
             user_dict = dict(user)
             user_dict.pop('_id', None)  # Remove the ObjectId field
             session['current_user'] = user_dict

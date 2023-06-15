@@ -14,6 +14,20 @@
 </head>
 
 <body onload="initialLoading()">
+    <!-- User Menu -->
+    <nav id="navbar">
+        <div id="userImage" onclick="toggleMenu()">
+            <img src="{{ user_image_url }}" alt="User Image" />
+            <div class="arrow-down"></div>
+        </div>
+        <ul id="userMenu">
+            <li id="currentUser">Username: <span id="currentUserName">{{ username }}</span></li>
+            <li id="currentUserHighScore">Best score: <span id="currentUserHighScoreNumber">{{ best
+                    }}</span></li>
+            <li id="currenUserLogout" onclick="logOut()">Logout</li>
+        </ul>
+    </nav>
+
     <!-- Title Area -->
     <div class="titleAreaContainer">
         <h1>GUESS MY NUMBER</h1>
@@ -82,12 +96,7 @@
             </div>
         </div>
     </div>
-    <div>
-        <p id="currentUser">Current User: <span id="currentUserName">{{ username }}</span></p>
-        <p id="currentUserHighScore">Current User High Score: <span id="currentUserHighScoreNumber">{{ best
-                }}</span></p>
-        <p id="currenUserLogout" onclick="logOut()">Logout</p>
-    </div>
+
 </body>
 
 </html>

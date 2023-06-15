@@ -223,3 +223,12 @@ signUp = () => {
 logIn = () => {
   window.location.href = '/login';
 };
+
+toggleMenu = () => {
+  var userMenu = document.getElementById('userMenu');
+  if (userMenu.style.display === 'block') {
+    userMenu.style.display = 'none';
+  } else {
+    userMenu.style.display = 'block';
+  }
+};

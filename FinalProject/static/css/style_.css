@@ -392,12 +392,36 @@ body,
     background-color: #f1f1f1;
 }
 
+#userMenu #currentUserAccount,
 #userMenu #currenUserLogout {
     color: #ffffff;
     background-color: #ff7a7a;
+    margin: 10px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#userMenu #currentUserAccount {
+    background-color: #3A89C9;
+}
+
+#userMenu #currentUserAccount:hover {
+    background-color: #2F6FAB;
 }
 
 #userMenu #currenUserLogout:hover {
-    color: #ffffff;
     background-color: #ff5959;
+}
+
+#currentUserName,
+#currentUserHighScoreNumber {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    text-align: center;
+}
+
+#currentUserHighScoreNumber {
+    font-style: italic;
 }

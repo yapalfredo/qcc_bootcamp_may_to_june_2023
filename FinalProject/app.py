@@ -2,7 +2,7 @@
 # PURPOSE: This is the main file for the project. It contains the routes for this project.
 # AUTHOR: ALFREDO YAP
 
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
@@ -23,8 +23,12 @@ collection = db['users']
 def index():
     if 'current_user' in session:
         username = session['current_user']['username']
-        best = session['current_user']['best']
         user_image_url = 'https://robohash.org/'+username
+
+        # Fetch the user data from the database to get the latest 'best' score
+        user = collection.find_one({"username": username})
+        best = user['best'] if user and 'best' in user else 0
+
         return render_template("index.html", username=username, best=best, user_image_url=user_image_url)
     else:
         return redirect(url_for('login'))
@@ -51,9 +55,13 @@ def login():
         if user is None:
             return render_template("login.html", error="Invalid username or password")
         else:
-
             user_dict = dict(user)
             user_dict.pop('_id', None)  # Remove the ObjectId field
+
+            # Check if the best score is already in the session
+            if 'best' not in user_dict:
+                user_dict['best'] = 0
+
             session['current_user'] = user_dict
             return redirect(url_for('index'))
     else:
@@ -80,9 +88,9 @@ def signup():
         if password != confirm_password:
             return render_template("signup.html", error="Passwords do not match")
 
-        # check if username and password match
+        # check if username already exists
         user = collection.find_one(
-            {"username": username, "password": password})
+            {"username": username})
 
         if user is None:
             # create new user
@@ -99,7 +107,38 @@ def signup():
         return render_template("signup.html")
 
 
-# logout route
+@app.route("/update_best_score", methods=['POST'])
+def update_best_score():
+    if 'current_user' in session:
+        username = session['current_user']['username']
+        score = request.json.get('score')
+
+        # update the session value for best
+        session['current_user']['best'] = score
+
+        if score is not None and isinstance(score, int):
+            # Update the existing document with the new score
+            collection.update_one({"username": username}, {
+                                  '$set': {'best': score}})
+
+            return jsonify({'message': 'Score updated successfully'})
+        else:
+            return jsonify({'error': 'Invalid request data'})
+    else:
+        return jsonify({'error': 'User not logged in'})
+
+
+@app.route("/get_best_score")
+def get_best_score():
+    if 'current_user' in session:
+        username = session['current_user']['username']
+        user = collection.find_one({"username": username})
+        if user is not None and 'best' in user:
+            best_score = user['best']
+            return jsonify({'best': best_score})
+    return jsonify({'error': 'User not logged in or score not found'})
+
+
 @app.route("/logout")
 def logout():
     # remove the current_user from the session

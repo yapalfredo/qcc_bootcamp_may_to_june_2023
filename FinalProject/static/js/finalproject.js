@@ -160,6 +160,28 @@ youWin = () => {
   if (highScoreVariable < scoreVariable) {
     highScoreVariable = scoreVariable;
     assignHighScore();
+
+    // Send an AJAX request to the Flask endpoint to save the score
+    fetch('/update_best_score', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ score: scoreVariable }),
+    })
+      .then((response) => {
+        // Check if the response is successful
+        if (response.ok) {
+          // Score saved successfully
+          console.log('Best score saved successfully.');
+          updateCurrentUserHighScore();
+        } else {
+          throw new Error('Request failed.');
+        }
+      })
+      .catch((error) => {
+        console.log('Error:', error);
+      });
   }
 
   gameProgress(0);
@@ -231,4 +253,20 @@ toggleMenu = () => {
   } else {
     userMenu.style.display = 'block';
   }
+};
+
+updateCurrentUserHighScore = () => {
+  const currentUserHighScoreNumber = document.getElementById(
+    'currentUserHighScoreNumber'
+  );
+  // Send an AJAX request to the Flask endpoint to get the best score
+  fetch('/get_best_score')
+    .then((response) => response.json())
+    .then((data) => {
+      // Update the currentUserHighScoreNumber in the DOM
+      currentUserHighScoreNumber.textContent = data.best;
+    })
+    .catch((error) => {
+      console.log('Error:', error);
+    });
 };

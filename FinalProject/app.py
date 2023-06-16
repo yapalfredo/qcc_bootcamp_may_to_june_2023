@@ -2,7 +2,7 @@
 # PURPOSE: This is the main file for the project. It contains the routes for this project.
 # AUTHOR: ALFREDO YAP
 
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify,  make_response
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
@@ -170,6 +170,11 @@ def logout():
 # delete account, remove from database, delete session, logout. fetch from ajax
 @app.route("/delete_account", methods=['GET', 'POST'])
 def delete_account():
+
+    # allow only if there's a valid session
+    if 'current_user' not in session:
+        return render_session_not_found()
+
     # get username from ajax request
     username = request.json.get('username')
     # delete user from database using username
@@ -184,6 +189,10 @@ def delete_account():
 # reset best score to 0, fetch from ajax
 @app.route("/reset_best_score", methods=['GET', 'POST'])
 def reset_best_score():
+    # allow only if there's a valid session
+    if 'current_user' not in session:
+        return render_session_not_found()
+
     # get username from ajax request
     username = request.json.get('username')
     # update the best in database using username
@@ -200,6 +209,11 @@ def reset_best_score():
 # update password in db
 @app.route("/update_password", methods=['GET', 'POST'])
 def update_password():
+
+    # allow only if there's a valid session
+    if 'current_user' not in session:
+        return render_session_not_found()
+
     # not ajax, get username and password from using name. Then validate current password, the new password and confirm new password. Do not allow empty fields. If current password is correct, update password in database. If not, return error message. If new password and confirm new password do not match, return error message. If all is well, return success message.
     # get username and password from form using ID
     username = request.form['username']
@@ -232,6 +246,11 @@ def update_password():
                             '$set': {'password': new_password}})
     return render_template("account.html", update_success="Password updated successfully", username=username, best=best)
     
+def render_session_not_found():
+    response = make_response("<h1>No active session found</h1> <p>You will be redirected to the login page in 5 seconds</p>")
+    response.headers['Refresh'] = '5;url=' + url_for('login')
+    return response
+
 
 
 if __name__ == '__main__':

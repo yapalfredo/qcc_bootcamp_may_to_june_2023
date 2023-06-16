@@ -29,7 +29,17 @@ def index():
         user = collection.find_one({"username": username})
         best = user['best'] if user and 'best' in user else 0
 
-        return render_template("index.html", username=username, best=best, user_image_url=user_image_url)
+        # fetch  top scores from the database
+        # save the top_sccores in a array with out the _id, the size is 10. if not 10, make the null value empty
+        top_scores = list(collection.find(
+            {}, {'_id': 0, 'username': 1, 'best': 1}).sort('best', -1).limit(10))
+        if len(top_scores) < 10:
+            for i in range(10 - len(top_scores)):
+                top_scores.append({'username': '', 'best': ''})        
+       
+        session['top_scores'] = top_scores
+
+        return render_template("index.html", username=username, best=best, user_image_url=user_image_url, top_scores=top_scores)
     else:
         return redirect(url_for('login'))
 
@@ -48,7 +58,6 @@ def login():
         # check if username and password match
         user = collection.find_one(
             {"username": username, "password": password})
-
         if not username or not password:
             return render_template("login.html", error="Username and password cannot be empty")
 
@@ -163,8 +172,9 @@ def get_best_score():
 
 @app.route("/logout")
 def logout():
-    # remove the current_user from the session
+    # remove the current_user and top_scores from the session
     session.pop('current_user', None)
+    session.pop('top_scores', None)
     return redirect(url_for('index'))
 
 # delete account, remove from database, delete session, logout. fetch from ajax

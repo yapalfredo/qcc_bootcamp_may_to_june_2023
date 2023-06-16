@@ -351,6 +351,7 @@ body,
     color: green;
 }
 
+
 #navbar {
     display: flex;
     justify-content: flex-end;
@@ -366,7 +367,8 @@ body,
     position: relative;
 }
 
-#userImage img {
+#userImage img,
+#topTenScorers img {
     width: 50px;
     height: 50px;
     overflow: hidden;
@@ -376,12 +378,14 @@ body,
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-#userImage:hover img {
+#userImage:hover img,
+#topTenScorers:hover img {
     border-color: #ff9900;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-#userImage:hover .arrow-down {
+#userImage:hover .arrow-down,
+#topTenScorers:hover .arrow-down {
     transform: scale(1.5);
 }
 
@@ -394,7 +398,33 @@ body,
     margin-top: 3px;
 }
 
-#userMenu {
+#topTenScorersNavbar {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#topTenScorers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+#topTenScorers img {
+    width: 50px;
+    height: 50px;
+}
+
+.caption {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#userMenu,
+#topTenScorersMenu {
     display: none;
     position: absolute;
     top: 100%;
@@ -414,23 +444,32 @@ body,
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-#userMenu:hover {
+#topTenScorersMenu {
+    left: 0;
+}
+
+#userMenu:hover,
+#topTenScorersMenu:hover {
     border-color: #ff9900;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-#userMenu li {
+#userMenu li,
+#topTenScorersMenu li {
     display: block;
     padding: 10px;
     border-bottom: 1px solid #ccc;
     user-select: none;
+    text-align: center;
 }
 
-#userMenu li:last-child {
+#userMenu li:last-child,
+#topTenScorersMenu li:last-child {
     border-bottom: none;
 }
 
-#userMenu li:hover {
+#userMenu li:hover,
+#topTenScorersMenu li:hover {
     background-color: #f1f1f1;
 }
 
@@ -454,6 +493,25 @@ body,
 
 #userMenu #currenUserLogout:hover {
     background-color: #ff5959;
+}
+
+
+.gold {
+    background-color: gold;
+}
+
+.silver {
+    background-color: silver;
+}
+
+.bronze {
+    background-color: #cd7f32;
+}
+
+.gold:hover,
+.silver:hover,
+.bronze:hover {
+    background-color: #f1f1f1;
 }
 
 #currentUserName,

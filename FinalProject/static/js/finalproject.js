@@ -256,12 +256,17 @@ goToIndex = () => {
 };
 
 toggleMenu = () => {
-  var userMenu = document.getElementById('userMenu');
+  const userMenu = document.getElementById('userMenu');
   if (userMenu.style.display === 'block') {
     userMenu.style.display = 'none';
   } else {
     userMenu.style.display = 'block';
   }
+};
+
+toggleTopTenScorersMenu = () => {
+  const menu = document.getElementById('topTenScorersMenu');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
 };
 
 updateCurrentUserHighScore = () => {

@@ -13,21 +13,55 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/finalproject.js') }}"></script>
 </head>
 
-<body onload="initialLoading()" on>
-    <!-- User Menu -->
-    <nav id="navbar">
-        <div id="userImage" onclick="toggleMenu()">
-            <img src="{{ user_image_url }}" alt="User Image" />
-            <div class="arrow-down"></div>
-        </div>
-        <ul id="userMenu">
-            <li id="currentUser">Username: <span id="currentUserName">{{ username }}</span></li>
-            <li id="currentUserHighScore">Personal Best: <span id="currentUserHighScoreNumber">{{ best
-                    }}</span></li>
-            <li id="currentUserAccount" onclick="goToAccount()">Account</li>
-            <li id="currenUserLogout" onclick="logOut()">Logout</li>
-        </ul>
-    </nav>
+<body onload="initialLoading()">
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 70%; margin:auto; ">
+        <nav id="topTenScorersNavbar">
+            <div id="topTenScorers" onclick="toggleTopTenScorersMenu()">
+                <img src="{{ url_for('static', filename='images/trophy.png' ) }}" alt="Trophy" />
+                <div class="caption">Top 10 Rankings</div>
+                <div class="arrow-down"></div>
+            </div>
+            <ul id="topTenScorersMenu">
+                <!-- Add list items for top 10 users here -->
+                <li class="gold"><span id="spanRankOne">{{ top_scores[0]['username'] }}</span> - <span
+                        id="spanScoreOne">{{top_scores[0]['best']}}</span></li>
+                <li class="silver"><span id="spanRankTwo">{{ top_scores[1]['username'] }}</span> - <span
+                        id="spanScoreTwo">{{top_scores[1]['best']}}</span></li>
+                <li class="bronze"><span id="spanRankThree">{{top_scores[2]['username']}}</span> - <span
+                        id="spanScoreThree">{{top_scores[2]['best']}}</span></li>
+                <li><span id="spanRankFour">{{top_scores[3]['username']}}</span> - <span
+                        id="spanScoreFour">{{top_scores[3]['best']}}</span></li>
+                <li><span id="spanRankFive">{{top_scores[4]['username']}}</span> - <span
+                        id="spanScoreFive">{{top_scores[4]['best']}}</span></li>
+                <li><span id="spanRankSix">{{top_scores[5]['username']}}</span> - <span
+                        id="spanScoreSix">{{top_scores[5]['best']}}</span></li>
+                <li><span id="spanRankSeven">{{top_scores[6]['username']}}</span> - <span
+                        id="spanScoreSeven">{{top_scores[6]['best']}}</span></li>
+                <li><span id="spanRankEight">{{top_scores[7]['username']}}</span> - <span
+                        id="spanScoreEight">{{top_scores[7]['best']}}</span></li>
+                <li><span id="spanRankNine">{{top_scores[8]['username']}}</span> - <span
+                        id="spanScoreNine">{{top_scores[8]['best']}}</span></li>
+                <li><span id="spanRankTen">{{top_scores[9]['username']}}</span> - <span
+                        id="spanScoreTen">{{top_scores[9]['best']}}</span></li>
+            </ul>
+        </nav>
+        <!-- User Menu -->
+        <nav id="navbar">
+            <div id="userImage" onclick="toggleMenu()">
+                <img src="{{ user_image_url }}" alt="User Image" />
+                <div class="caption">Menu</div>
+                <div class="arrow-down"></div>
+            </div>
+            <ul id="userMenu">
+                <li id="currentUser">Username: <span id="currentUserName">{{ username }}</span></li>
+                <li id="currentUserHighScore">Personal Best: <span id="currentUserHighScoreNumber">{{ best
+                        }}</span></li>
+                <li id="currentUserAccount" onclick="goToAccount()">Account</li>
+                <li id="currenUserLogout" onclick="logOut()">Logout</li>
+            </ul>
+        </nav>
+    </div>
+
 
     <!-- Title Area -->
     <div class="titleAreaContainer">

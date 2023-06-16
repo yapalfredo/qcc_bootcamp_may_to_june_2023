@@ -351,6 +351,14 @@ body,
     color: green;
 }
 
+#navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+}
+
 
 #navbar {
     display: flex;
@@ -421,6 +429,7 @@ body,
     margin-top: 5px;
     font-size: 14px;
     font-weight: bold;
+    user-select: none;
 }
 
 #userMenu,

@@ -183,7 +183,7 @@ youWin = () => {
         console.log('Error:', error);
       });
   }
-
+  refreshTopTenScorers();
   gameProgress(0);
 };
 
@@ -347,4 +347,65 @@ reflectResetBest = () => {
     .catch((error) => {
       console.log('Error:', error);
     });
+};
+
+// update the best score in database then update the DOM
+refreshTopTenScorers = () => {
+  console.log('refreshTopTenScorers');
+  spanRankOne = document.getElementById('spanRankOne');
+  spanScoreOne = document.getElementById('spanScoreOne');
+  spanRankTwo = document.getElementById('spanRankTwo');
+  spanScoreTwo = document.getElementById('spanScoreTwo');
+  spanRankThree = document.getElementById('spanRankThree');
+  spanScoreThree = document.getElementById('spanScoreThree');
+  spanRankFour = document.getElementById('spanRankFour');
+  spanScoreFour = document.getElementById('spanScoreFour');
+  spanRankFive = document.getElementById('spanRankFive');
+  spanScoreFive = document.getElementById('spanScoreFive');
+  spanRankSix = document.getElementById('spanRankSix');
+  spanScoreSix = document.getElementById('spanScoreSix');
+  spanRankSeven = document.getElementById('spanRankSeven');
+  spanScoreSeven = document.getElementById('spanScoreSeven');
+  spanRankEight = document.getElementById('spanRankEight');
+  spanScoreEight = document.getElementById('spanScoreEight');
+  spanRankNine = document.getElementById('spanRankNine');
+  spanScoreNine = document.getElementById('spanScoreNine');
+  spanRankTen = document.getElementById('spanRankTen');
+  spanScoreTen = document.getElementById('spanScoreTen');
+
+  //AJAX REQUEST
+  fetch('/refresh_top_ten_scorers', {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then((response) => {
+    if (response.ok) {
+      // Update the top ten scorers in the DOM
+      response.json().then((data) => {
+        // assign the value in span to the data from database
+        spanRankOne.innerText = data.top_ten_scorers[0].username;
+        spanScoreOne.innerText = data.top_ten_scorers[0].best;
+        spanRankTwo.innerText = data.top_ten_scorers[1].username;
+        spanScoreTwo.innerText = data.top_ten_scorers[1].best;
+        spanRankThree.innerText = data.top_ten_scorers[2].username;
+        spanScoreThree.innerText = data.top_ten_scorers[2].best;
+        spanRankFour.innerText = data.top_ten_scorers[3].username;
+        spanScoreFour.innerText = data.top_ten_scorers[3].best;
+        spanRankFive.innerText = data.top_ten_scorers[4].username;
+        spanScoreFive.innerText = data.top_ten_scorers[4].best;
+        spanRankSix.innerText = data.top_ten_scorers[5].username;
+        spanScoreSix.innerText = data.top_ten_scorers[5].best;
+        spanRankSeven.innerText = data.top_ten_scorers[6].username;
+        spanScoreSeven.innerText = data.top_ten_scorers[6].best;
+        spanRankEight.innerText = data.top_ten_scorers[7].username;
+        spanScoreEight.innerText = data.top_ten_scorers[7].best;
+        spanRankNine.innerText = data.top_ten_scorers[8].username;
+        spanScoreNine.innerText = data.top_ten_scorers[8].best;
+        spanRankTen.innerText = data.top_ten_scorers[9].username;
+        spanScoreTen.innerText = data.top_ten_scorers[9].best;
+      });
+    } else {
+      throw new Error('Request failed to refresh top ten scorers.');
+    }
+  });
 };

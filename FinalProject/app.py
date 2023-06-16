@@ -18,7 +18,6 @@ client = MongoClient(os.environ.get('MONGO_HOST'))
 db = client['qcc_se_final_project']
 collection = db['users']
 
-
 @app.route("/")
 def index():
     if 'current_user' in session:
@@ -29,20 +28,24 @@ def index():
         user = collection.find_one({"username": username})
         best = user['best'] if user and 'best' in user else 0
 
-        # fetch  top scores from the database
-        # save the top_sccores in a array with out the _id, the size is 10. if not 10, make the null value empty
-        top_scores = list(collection.find(
-            {}, {'_id': 0, 'username': 1, 'best': 1}).sort('best', -1).limit(10))
-        if len(top_scores) < 10:
-            for i in range(10 - len(top_scores)):
-                top_scores.append({'username': '', 'best': ''})        
-       
-        session['top_scores'] = top_scores
+        top_scores = get_top_scores()
 
         return render_template("index.html", username=username, best=best, user_image_url=user_image_url, top_scores=top_scores)
     else:
         return redirect(url_for('login'))
-
+    
+def get_top_scores():
+    # fetch  top scores from the database
+    # save the top_sccores in a array with out the _id, the size is 10. if not 10, make the null value empty
+    # score greater than 0 and sort by best score
+    top_scores = list(collection.find(
+        {'best': {'$gt': 0}}, {'_id': 0}).sort('best', -1).limit(10))
+    
+    if len(top_scores) < 10:
+        for i in range(10 - len(top_scores)):
+            top_scores.append({'username': '', 'best': ''})
+    
+    return top_scores
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -174,11 +177,10 @@ def get_best_score():
 def logout():
     # remove the current_user and top_scores from the session
     session.pop('current_user', None)
-    session.pop('top_scores', None)
     return redirect(url_for('index'))
 
 # delete account, remove from database, delete session, logout. fetch from ajax
-@app.route("/delete_account", methods=['GET', 'POST'])
+@app.route("/delete_account", methods=['POST'])
 def delete_account():
 
     # allow only if there's a valid session
@@ -197,7 +199,7 @@ def delete_account():
         return jsonify({'error': 'Invalid request data'})
 
 # reset best score to 0, fetch from ajax
-@app.route("/reset_best_score", methods=['GET', 'POST'])
+@app.route("/reset_best_score", methods=[ 'POST'])
 def reset_best_score():
     # allow only if there's a valid session
     if 'current_user' not in session:
@@ -261,6 +263,21 @@ def render_session_not_found():
     response.headers['Refresh'] = '5;url=' + url_for('login')
     return response
 
+@app.route("/refresh_top_ten_scorers")
+def refresh_top_ten_scorers():
+
+    if 'current_user' not in session:
+        return render_session_not_found()
+
+    # get the top ten scorers from the database
+    top_ten_scorers = get_top_scores()
+    return jsonify({'top_ten_scorers': top_ten_scorers})
+
+
+# links that do not exist will be redirected to the index page
+@app.errorhandler(404)
+def page_not_found(e):
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':

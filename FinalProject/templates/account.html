@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project - Account</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_.css' ) }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png' ) }}" type="image/x-icon">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/finalproject.js') }}"></script>
+</head>
+
+<body>
+    <div class=" titleAreaContainer">
+        <h1 id="homeH1">Account</h1>
+        <h3 id="homeH3" onclick="goToIndex()">&lt; go back</h3>
+    </div>
+    <!-- Middle Content Area Container -->
+    <div class="middleAreaContainer signup_login_area">
+        <div class="midRowContainer signup_login_area_mid">
+            <div class="startScreenContainer signup_login_area_start" id="midRow_start">
+                <form action="/update_password" method="post" id="form_account" class="account_form">
+                    <div>
+                        <input type="text" class="startScreenChild grayOut" id="loginUsername" name="username"
+                            placeholder="username" readonly value="{{ username }}">
+                    </div>
+                    <div>
+                        <input type="text" class="startScreenChild grayOut" id="editBest" name="best" placeholder="best"
+                            readonly value="{{ best }}">
+                        <button class="startScreenChild" id="resetButton" type="button" onclick="resetBest()">Reset
+                            best</button>
+                    </div>
+                    <div>
+                        <input type="password" class="startScreenChild" id="loginPassword" name="password"
+                            placeholder="Current password">
+                    </div>
+                    <div>
+                        <input type="password" class="startScreenChild" id="loginPassword" name="new_password"
+                            placeholder="New password">
+                    </div>
+                    <div>
+                        <input type="password" class="startScreenChild" id="loginPassword" name="confirm_password"
+                            placeholder="Confirm new password">
+                    </div>
+                    {% if error %}
+                    <div class="error startScreenChild" id="errorDiv">{{ error }}</div>
+                    {% endif %}
+                    <div>
+                        <button class="startScreenChild" id="loginButton" type="submit">Update</button>
+                        <button class="startScreenChild" id="deleteAccountButton" type="button"
+                            onclick="deleteAccount()">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="error" id="update_error">{{ update_error }}</div>
+    <div class="error success" id="update_success">{{ update_success }}</div>
+</body>
+
+</html>

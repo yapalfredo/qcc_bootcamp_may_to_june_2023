@@ -8,7 +8,7 @@ body,
     background-color: #e0e0e0;
 }
 
-
+#editBest,
 .titleAreaContainer h1,
 .titleAreaContainer h3,
 #h4Score,
@@ -97,6 +97,7 @@ body,
 .startScreenContainer,
 #midScreenInputText,
 #loginUsername,
+#editBest,
 #loginPassword,
 #signupUsername,
 #signupPassword,
@@ -105,14 +106,18 @@ body,
     border-radius: 15px;
 }
 
+#resetButton,
 #loginButton,
-#signUpButton {
+#signUpButton,
+#deleteAccountButton {
     border: none;
 }
 
+#resetButton,
 #midScreenCheckButton,
 #loginButton,
-#signUpButton {
+#signUpButton,
+#deleteAccountButton {
     border-radius: 10px;
 }
 
@@ -127,11 +132,13 @@ body,
     background-color: #a8d0e6;
 }
 
+#resetButton,
 .leftContainer,
 .rightContainer h4,
 #midScreenCheckButton,
 #loginButton,
-#signUpButton {
+#signUpButton,
+#deleteAccountButton {
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -150,16 +157,20 @@ body,
     padding-bottom: 15px;
 }
 
+#resetButton,
 #midScreenCheckButton,
 #loginButton,
-#signUpButton {
+#signUpButton,
+#deleteAccountButton {
     padding-top: 8px;
     padding-bottom: 8px;
 }
 
+#resetButton,
 .rightContainer #h4Reset,
 #midScreenCheckButton,
 #loginButton,
+#deleteAccountButton,
 #signUpButton,
 #currenUserLogout {
     cursor: pointer;
@@ -199,6 +210,7 @@ body,
 
 #midScreenInputText,
 #loginUsername,
+#editBest,
 #loginPassword,
 #signupUsername,
 #signupPassword,
@@ -209,6 +221,8 @@ body,
 
 #midScreenCheckButton,
 
+#resetButton,
+#deleteAccountButton,
 #loginButton,
 #signUpButton {
     font-size: smaller;
@@ -233,10 +247,34 @@ body,
     box-shadow: 0px 0px 5px 0px rgba(76, 167, 232, 0.75);
 }
 
+
+#deleteAccountButton {
+    background-color: #E74C3C;
+    box-shadow: 0px 0px 5px 0px rgba(231, 76, 60, 0.75);
+}
+
+#deleteAccountButton:hover {
+    background-color: #EA6153;
+    box-shadow: 0px 0px 5px 0px rgba(234, 97, 83, 0.75);
+}
+
+#resetButton {
+    background-color: #F39C12;
+    box-shadow: 0px 0px 8px 2px rgba(243, 156, 18, 0.85);
+    ;
+}
+
+#resetButton:hover {
+    background-color: #F5A623;
+    box-shadow: 0px 0px 10px 3px rgba(245, 166, 35, 0.85);
+}
+
+#resetButton,
 #midScreenCheckButton,
 #midScreenMessageArea,
 #loginButton,
-#signUpButton {
+#signUpButton,
+#deleteAccountButton {
     color: white;
 }
 
@@ -307,6 +345,10 @@ body,
 
 .error {
     color: red;
+}
+
+.success {
+    color: green;
 }
 
 #navbar {
@@ -416,7 +458,7 @@ body,
 
 #currentUserName,
 #currentUserHighScoreNumber {
-    font-size: 20px;
+    font-size: large;
     font-weight: bold;
     margin: 10px;
     text-align: center;
@@ -424,4 +466,37 @@ body,
 
 #currentUserHighScoreNumber {
     font-style: italic;
+}
+
+#currentUser,
+#currentUserHighScore {
+    font-size: medium;
+    font-weight: lighter;
+}
+
+.grayOut {
+    background-color: rgba(245, 245, 245, 0.831);
+    pointer-events: none;
+}
+
+#editBest {
+    width: 20%
+}
+
+#update_error,
+#update_success {
+    margin-top: 1%;
+    text-align: center;
+}
+
+#homeH3 {
+    cursor: pointer;
+    color: #3A89C9;
+    text-decoration: underline;
+    margin-top: 1%;
+}
+
+#homeH3:hover {
+    color: #2F6FAB;
+    text-decoration: underline;
 }

@@ -246,6 +246,15 @@ logIn = () => {
   window.location.href = '/login';
 };
 
+goToAccount = () => {
+  toggleMenu();
+  window.location.href = '/account';
+};
+
+goToIndex = () => {
+  window.location.href = '/';
+};
+
 toggleMenu = () => {
   var userMenu = document.getElementById('userMenu');
   if (userMenu.style.display === 'block') {
@@ -265,6 +274,70 @@ updateCurrentUserHighScore = () => {
     .then((data) => {
       // Update the currentUserHighScoreNumber in the DOM
       currentUserHighScoreNumber.textContent = data.best;
+    })
+    .catch((error) => {
+      console.log('Error:', error);
+    });
+};
+
+let username;
+let _best;
+//alert box ask user to confirm if they want to delete their account
+deleteAccount = () => {
+  username = document.getElementById('loginUsername').value;
+  let r = confirm('Are you sure you want to delete your account?');
+  console.log(username);
+  if (r == true) {
+    //AJAX REQUEST
+    fetch('/delete_account', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username: username }),
+    }).then((response) => {
+      // Check if the response is successful
+      if (response.ok) {
+        console.log('Account deleted successfully');
+        window.location.href = '/logout';
+      } else {
+        throw new Error('Request failed.');
+      }
+    });
+  }
+};
+
+// reset best score in database then update the DOM
+resetBest = () => {
+  username = document.getElementById('loginUsername').value;
+  //AJAX REQUEST
+  fetch('/reset_best_score', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ username: username }),
+  }).then((response) => {
+    // Check if the response is successful
+    if (response.ok) {
+      console.log('Best score reset successfully');
+      reflectResetBest();
+    } else {
+      throw new Error('Request failed.');
+    }
+  });
+};
+
+// update the DOM with the new best score
+reflectResetBest = () => {
+  username = document.getElementById('loginUsername');
+  _best = document.getElementById('editBest');
+  // Send an AJAX request to the Flask endpoint to get the best score
+  fetch('/get_best_score')
+    .then((response) => response.json())
+    .then((data) => {
+      // Update the currentUserHighScoreNumber in the DOM
+      _best.value = data.best;
     })
     .catch((error) => {
       console.log('Error:', error);

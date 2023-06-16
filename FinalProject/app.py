@@ -113,15 +113,22 @@ def update_best_score():
         username = session['current_user']['username']
         score = request.json.get('score')
 
-        # update the session value for best
-        session['current_user']['best'] = score
-
         if score is not None and isinstance(score, int):
-            # Update the existing document with the new score
-            collection.update_one({"username": username}, {
-                                  '$set': {'best': score}})
+            # Fetch the user data from the database to get the latest 'best' score
+            user = collection.find_one({"username": username})
+            current_best = user['best'] if user and 'best' in user else 0
 
-            return jsonify({'message': 'Score updated successfully'})
+            # Compare the new score with the current best score and update if necessary
+            if score > current_best:
+                # update the session value for best
+                session['current_user']['best'] = score
+
+                # Update the existing document with the new score
+                collection.update_one({"username": username}, {
+                                      '$set': {'best': score}})
+                return jsonify({'message': 'Score updated successfully'})
+            else:
+                return jsonify({'message': 'New score is not higher than the current best score'})
         else:
             return jsonify({'error': 'Invalid request data'})
     else:

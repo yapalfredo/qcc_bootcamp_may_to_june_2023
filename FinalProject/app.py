@@ -1,5 +1,5 @@
 # PROJECT NAME: FINAL_PROJECT
-# PURPOSE: This is the main file for the project. It contains the routes for this project.
+# PURPOSE: This is the main file. It contains the routes for this project.
 # AUTHOR: ALFREDO YAP
 
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify,  make_response
